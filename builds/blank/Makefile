@@ -1,4 +1,4 @@
-PROJECT_NAME := blinky_blank_pca10031
+PROJECT_NAME := blinky_blank_pca20006
 
 export OUTPUT_FILENAME
 #MAKEFILE_NAME := $(CURDIR)/$(word $(words $(MAKEFILE_LIST)),$(MAKEFILE_LIST))
@@ -45,7 +45,7 @@ $(abspath ../../../../../../components/drivers_nrf/delay/nrf_delay.c) \
 ASM_SOURCE_FILES  = $(abspath ../../../../../../components/toolchain/gcc/gcc_startup_nrf51.s)
 
 #includes common to all targets
-INC_PATHS  = -I$(abspath ../../../config/blinky_blank_pca10031)
+INC_PATHS  = -I$(abspath ../../../config/blinky_blank_pca20006)
 INC_PATHS += -I$(abspath ../../../config)
 INC_PATHS += -I$(abspath ../../../../../../components/toolchain/gcc)
 INC_PATHS += -I$(abspath ../../../../../../components/toolchain)
@@ -64,7 +64,7 @@ BUILD_DIRECTORIES := $(sort $(OBJECT_DIRECTORY) $(OUTPUT_BINARY_DIRECTORY) $(LIS
 
 #flags common to all targets
 CFLAGS  = -DNRF51
-CFLAGS += -DBOARD_PCA10031
+CFLAGS += -DBOARD_PCA20006
 CFLAGS += -DBSP_DEFINES_ONLY
 CFLAGS += -mcpu=cortex-m0
 CFLAGS += -mthumb -mabi=aapcs --std=gnu99
@@ -86,20 +86,20 @@ LDFLAGS += --specs=nano.specs -lc -lnosys
 # Assembler flags
 ASMFLAGS += -x assembler-with-cpp
 ASMFLAGS += -DNRF51
-ASMFLAGS += -DBOARD_PCA10031
+ASMFLAGS += -DBOARD_PCA20006
 ASMFLAGS += -DBSP_DEFINES_ONLY
 #default target - first one defined
-default: clean nrf51422_xxac
+default: clean nrf51822_xxaa
 
 #building all targets
 all: clean
 	$(NO_ECHO)$(MAKE) -f $(MAKEFILE_NAME) -C $(MAKEFILE_DIR) -e cleanobj
-	$(NO_ECHO)$(MAKE) -f $(MAKEFILE_NAME) -C $(MAKEFILE_DIR) -e nrf51422_xxac
+	$(NO_ECHO)$(MAKE) -f $(MAKEFILE_NAME) -C $(MAKEFILE_DIR) -e nrf51822_xxaa
 
 #target for printing all targets
 help:
 	@echo following targets are available:
-	@echo 	nrf51422_xxac
+	@echo 	nrf51822_xxaa
 
 
 C_SOURCE_FILE_NAMES = $(notdir $(C_SOURCE_FILES))
@@ -115,9 +115,9 @@ vpath %.s $(ASM_PATHS)
 
 OBJECTS = $(C_OBJECTS) $(ASM_OBJECTS)
 
-nrf51422_xxac: OUTPUT_FILENAME := nrf51422_xxac
-nrf51422_xxac: LINKER_SCRIPT=blinky_gcc_nrf51.ld
-nrf51422_xxac: $(BUILD_DIRECTORIES) $(OBJECTS)
+nrf51822_xxaa: OUTPUT_FILENAME := nrf51822_xxaa
+nrf51822_xxaa: LINKER_SCRIPT=blinky_gcc_nrf51.ld
+nrf51822_xxaa: $(BUILD_DIRECTORIES) $(OBJECTS)
 	@echo Linking target: $(OUTPUT_FILENAME).out
 	$(NO_ECHO)$(CC) $(LDFLAGS) $(OBJECTS) $(LIBS) -o $(OUTPUT_BINARY_DIRECTORY)/$(OUTPUT_FILENAME).out
 	$(NO_ECHO)$(MAKE) -f $(MAKEFILE_NAME) -C $(MAKEFILE_DIR) -e finalize

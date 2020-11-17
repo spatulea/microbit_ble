@@ -1,4 +1,4 @@
-PROJECT_NAME := blinky_s110_pca10031
+PROJECT_NAME := blinky_s110_pca20006
 
 export OUTPUT_FILENAME
 #MAKEFILE_NAME := $(CURDIR)/$(word $(words $(MAKEFILE_LIST)),$(MAKEFILE_LIST))
@@ -45,12 +45,12 @@ $(abspath ../../components/drivers_nrf/delay/nrf_delay.c) \
 ASM_SOURCE_FILES  = $(abspath ../../components/toolchain/gcc/gcc_startup_nrf51.s)
 
 #includes common to all targets
-# INC_PATHS  = -I$(abspath ../../../config/blinky_s110_pca10031)
+# INC_PATHS  = -I$(abspath ../../../config/blinky_s110_pca20006)
 # INC_PATHS += -I$(abspath ../../../config)
 INC_PATHS += -I$(abspath ../../components/toolchain/gcc)
 INC_PATHS += -I$(abspath ../../components/toolchain)
 INC_PATHS += -I$(abspath ../../components/softdevice/s110/headers)
-INC_PATHS += -I$(abspath ../..)
+INC_PATHS += -I$(abspath ../../..)
 INC_PATHS += -I$(abspath ../../bsp)
 INC_PATHS += -I$(abspath ../../components/device)
 INC_PATHS += -I$(abspath ../../components/drivers_nrf/delay)
@@ -66,9 +66,9 @@ BUILD_DIRECTORIES := $(sort $(OBJECT_DIRECTORY) $(OUTPUT_BINARY_DIRECTORY) $(LIS
 #flags common to all targets
 CFLAGS  = -DSOFTDEVICE_PRESENT
 CFLAGS += -DNRF51
-CFLAGS += -DBOARD_PCA10031
 CFLAGS += -DS110
 CFLAGS += -DBLE_STACK_SUPPORT_REQD
+CFLAGS += -DBOARD_PCA20006
 CFLAGS += -DBSP_DEFINES_ONLY
 CFLAGS += -mcpu=cortex-m0
 CFLAGS += -mthumb -mabi=aapcs --std=gnu99
@@ -91,23 +91,22 @@ LDFLAGS += --specs=nano.specs -lc -lnosys
 ASMFLAGS += -x assembler-with-cpp
 ASMFLAGS += -DSOFTDEVICE_PRESENT
 ASMFLAGS += -DNRF51
-ASMFLAGS += -DBOARD_PCA10031
 ASMFLAGS += -DS110
 ASMFLAGS += -DBLE_STACK_SUPPORT_REQD
+ASMFLAGS += -DBOARD_PCA20006
 ASMFLAGS += -DBSP_DEFINES_ONLY
 #default target - first one defined
-default: clean nrf51422_xxac_s110
+default: clean nrf51822_xxaa_s110
 
 #building all targets
 all: clean
 	$(NO_ECHO)$(MAKE) -f $(MAKEFILE_NAME) -C $(MAKEFILE_DIR) -e cleanobj
-	$(NO_ECHO)$(MAKE) -f $(MAKEFILE_NAME) -C $(MAKEFILE_DIR) -e nrf51422_xxac_s110
+	$(NO_ECHO)$(MAKE) -f $(MAKEFILE_NAME) -C $(MAKEFILE_DIR) -e nrf51822_xxaa_s110
 
 #target for printing all targets
 help:
 	@echo following targets are available:
-	@echo 	nrf51422_xxac_s110
-	@echo 	flash_softdevice
+	@echo 	nrf51822_xxaa_s110
 
 
 C_SOURCE_FILE_NAMES = $(notdir $(C_SOURCE_FILES))
@@ -123,9 +122,9 @@ vpath %.s $(ASM_PATHS)
 
 OBJECTS = $(C_OBJECTS) $(ASM_OBJECTS)
 
-nrf51422_xxac_s110: OUTPUT_FILENAME := nrf51422_xxac_s110
-nrf51422_xxac_s110: LINKER_SCRIPT=blinky_gcc_nrf51.ld
-nrf51422_xxac_s110: $(BUILD_DIRECTORIES) $(OBJECTS)
+nrf51822_xxaa_s110: OUTPUT_FILENAME := nrf51822_xxaa_s110
+nrf51822_xxaa_s110: LINKER_SCRIPT=blinky_gcc_nrf51.ld
+nrf51822_xxaa_s110: $(BUILD_DIRECTORIES) $(OBJECTS)
 	@echo Linking target: $(OUTPUT_FILENAME).out
 	$(NO_ECHO)$(CC) $(LDFLAGS) $(OBJECTS) $(LIBS) -o $(OUTPUT_BINARY_DIRECTORY)/$(OUTPUT_FILENAME).out
 	$(NO_ECHO)$(MAKE) -f $(MAKEFILE_NAME) -C $(MAKEFILE_DIR) -e finalize
@@ -186,11 +185,7 @@ cleanobj:
 
 flash: $(MAKECMDGOALS)
 	@echo Flashing: $(OUTPUT_BINARY_DIRECTORY)/$<.hex
-	nrfjprog --program $(OUTPUT_BINARY_DIRECTORY)/$<.hex -f nrf51  --sectorerase
+	nrfjprog --program $(OUTPUT_BINARY_DIRECTORY)/$<.hex -f nrf51  --chiperase
 	nrfjprog --reset
 
 ## Flash softdevice
-flash_softdevice:
-	@echo Flashing: s110_nrf51_8.0.0_softdevice.hex
-	nrfjprog --program ../../../../../../components/softdevice/s110/hex/s110_nrf51_8.0.0_softdevice.hex -f nrf51 --chiperase
-	nrfjprog --reset

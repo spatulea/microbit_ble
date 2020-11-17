@@ -67,7 +67,7 @@ Memory Configuration
 
 Name             Origin             Length             Attributes
 FLASH            0x0000000000018000 0x0000000000028000 xr
-RAM              0x0000000020002000 0x0000000000006000 xrw
+RAM              0x0000000020002000 0x0000000000002000 xrw
 *default*        0x0000000000000000 0xffffffffffffffff
 
 Linker script and memory map
@@ -102,7 +102,7 @@ END GROUP
  *(fs_data)
                 [!provide]                        PROVIDE (__stop_fs_data = .)
 
-.text           0x0000000000018000      0x3b0
+.text           0x0000000000018000      0x418
  *(.Vectors)
  .Vectors       0x0000000000018000       0xc0 _build/gcc_startup_nrf51.o
                 0x0000000000018000                __Vectors
@@ -124,52 +124,52 @@ END GROUP
                 0x0000000000018208       0x90 _build/system_nrf51.o
                 0x0000000000018208                SystemInit
  .text.startup.main
-                0x0000000000018298       0x68 _build/main.o
+                0x0000000000018298       0xd4 _build/main.o
                 0x0000000000018298                main
  .text.nrf_delay_ms
-                0x0000000000018300       0x3c _build/nrf_delay.o
-                0x0000000000018300                nrf_delay_ms
- .text          0x000000000001833c       0x54 _build/gcc_startup_nrf51.o
-                0x000000000001833c                Reset_Handler
-                0x0000000000018384                NMI_Handler
-                0x0000000000018386                HardFault_Handler
-                0x0000000000018388                SVC_Handler
-                0x000000000001838a                PendSV_Handler
-                0x000000000001838c                SysTick_Handler
-                0x000000000001838e                LPCOMP_IRQHandler
-                0x000000000001838e                SWI4_IRQHandler
-                0x000000000001838e                TEMP_IRQHandler
-                0x000000000001838e                QDEC_IRQHandler
-                0x000000000001838e                UART0_IRQHandler
-                0x000000000001838e                SWI5_IRQHandler
-                0x000000000001838e                TIMER0_IRQHandler
-                0x000000000001838e                SWI0_IRQHandler
-                0x000000000001838e                TIMER1_IRQHandler
-                0x000000000001838e                ECB_IRQHandler
-                0x000000000001838e                Default_Handler
-                0x000000000001838e                ADC_IRQHandler
-                0x000000000001838e                SWI3_IRQHandler
-                0x000000000001838e                CCM_AAR_IRQHandler
-                0x000000000001838e                WDT_IRQHandler
-                0x000000000001838e                SWI2_IRQHandler
-                0x000000000001838e                RNG_IRQHandler
-                0x000000000001838e                SPI1_TWI1_IRQHandler
-                0x000000000001838e                RTC1_IRQHandler
-                0x000000000001838e                TIMER2_IRQHandler
-                0x000000000001838e                SWI1_IRQHandler
-                0x000000000001838e                SPI0_TWI0_IRQHandler
-                0x000000000001838e                RTC0_IRQHandler
-                0x000000000001838e                GPIOTE_IRQHandler
-                0x000000000001838e                POWER_CLOCK_IRQHandler
-                0x000000000001838e                RADIO_IRQHandler
+                0x000000000001836c       0x3c _build/nrf_delay.o
+                0x000000000001836c                nrf_delay_ms
+ .text          0x00000000000183a8       0x54 _build/gcc_startup_nrf51.o
+                0x00000000000183a8                Reset_Handler
+                0x00000000000183f0                NMI_Handler
+                0x00000000000183f2                HardFault_Handler
+                0x00000000000183f4                SVC_Handler
+                0x00000000000183f6                PendSV_Handler
+                0x00000000000183f8                SysTick_Handler
+                0x00000000000183fa                LPCOMP_IRQHandler
+                0x00000000000183fa                SWI4_IRQHandler
+                0x00000000000183fa                TEMP_IRQHandler
+                0x00000000000183fa                QDEC_IRQHandler
+                0x00000000000183fa                UART0_IRQHandler
+                0x00000000000183fa                SWI5_IRQHandler
+                0x00000000000183fa                TIMER0_IRQHandler
+                0x00000000000183fa                SWI0_IRQHandler
+                0x00000000000183fa                TIMER1_IRQHandler
+                0x00000000000183fa                ECB_IRQHandler
+                0x00000000000183fa                Default_Handler
+                0x00000000000183fa                ADC_IRQHandler
+                0x00000000000183fa                SWI3_IRQHandler
+                0x00000000000183fa                CCM_AAR_IRQHandler
+                0x00000000000183fa                WDT_IRQHandler
+                0x00000000000183fa                SWI2_IRQHandler
+                0x00000000000183fa                RNG_IRQHandler
+                0x00000000000183fa                SPI1_TWI1_IRQHandler
+                0x00000000000183fa                RTC1_IRQHandler
+                0x00000000000183fa                TIMER2_IRQHandler
+                0x00000000000183fa                SWI1_IRQHandler
+                0x00000000000183fa                SPI0_TWI0_IRQHandler
+                0x00000000000183fa                RTC0_IRQHandler
+                0x00000000000183fa                GPIOTE_IRQHandler
+                0x00000000000183fa                POWER_CLOCK_IRQHandler
+                0x00000000000183fa                RADIO_IRQHandler
  *(.init)
- .init          0x0000000000018390        0x4 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crti.o
-                0x0000000000018390                _init
- .init          0x0000000000018394        0x8 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtn.o
+ .init          0x00000000000183fc        0x4 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crti.o
+                0x00000000000183fc                _init
+ .init          0x0000000000018400        0x8 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtn.o
  *(.fini)
- .fini          0x000000000001839c        0x4 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crti.o
-                0x000000000001839c                _fini
- .fini          0x00000000000183a0        0x8 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtn.o
+ .fini          0x0000000000018408        0x4 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crti.o
+                0x0000000000018408                _fini
+ .fini          0x000000000001840c        0x8 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtn.o
  *crtbegin.o(.ctors)
  *crtbegin?.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o *crtend?.o) .ctors)
@@ -182,49 +182,45 @@ END GROUP
  *(.dtors)
  *(.rodata*)
  .rodata._global_impure_ptr
-                0x00000000000183a8        0x4 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-impure.o)
-                0x00000000000183a8                _global_impure_ptr
- .rodata.leds_list
-                0x00000000000183ac        0x3 _build/main.o
-                0x00000000000183ac                leds_list
+                0x0000000000018414        0x4 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-impure.o)
+                0x0000000000018414                _global_impure_ptr
  *(.eh_frame*)
- *fill*         0x00000000000183af        0x1 
- .eh_frame      0x00000000000183b0        0x0 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
-                0x00000000000183b0                . = ALIGN (0x4)
+ .eh_frame      0x0000000000018418        0x0 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
+                0x0000000000018418                . = ALIGN (0x4)
 
-.glue_7         0x00000000000183b0        0x0
- .glue_7        0x00000000000183b0        0x0 linker stubs
+.glue_7         0x0000000000018418        0x0
+ .glue_7        0x0000000000018418        0x0 linker stubs
 
-.glue_7t        0x00000000000183b0        0x0
- .glue_7t       0x00000000000183b0        0x0 linker stubs
+.glue_7t        0x0000000000018418        0x0
+ .glue_7t       0x0000000000018418        0x0 linker stubs
 
-.vfp11_veneer   0x00000000000183b0        0x0
- .vfp11_veneer  0x00000000000183b0        0x0 linker stubs
+.vfp11_veneer   0x0000000000018418        0x0
+ .vfp11_veneer  0x0000000000018418        0x0 linker stubs
 
-.v4_bx          0x00000000000183b0        0x0
- .v4_bx         0x00000000000183b0        0x0 linker stubs
+.v4_bx          0x0000000000018418        0x0
+ .v4_bx         0x0000000000018418        0x0 linker stubs
 
-.iplt           0x00000000000183b0        0x0
- .iplt          0x00000000000183b0        0x0 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
+.iplt           0x0000000000018418        0x0
+ .iplt          0x0000000000018418        0x0 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
 
-.ARM.extab      0x00000000000183b0        0x0
+.ARM.extab      0x0000000000018418        0x0
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x00000000000183b0                . = ALIGN (0x4)
-                0x00000000000183b0                __exidx_start = .
+                0x0000000000018418                . = ALIGN (0x4)
+                0x0000000000018418                __exidx_start = .
 
-.ARM.exidx      0x00000000000183b0        0x8
+.ARM.exidx      0x0000000000018418        0x8
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
- .ARM.exidx     0x00000000000183b0        0x8 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o
- .ARM.exidx     0x00000000000183b8        0x0 _build/gcc_startup_nrf51.o
+ .ARM.exidx     0x0000000000018418        0x8 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o
+ .ARM.exidx     0x0000000000018420        0x0 _build/gcc_startup_nrf51.o
                                           0x8 (size before relaxing)
-                0x00000000000183b8                . = ALIGN (0x4)
-                0x00000000000183b8                __exidx_end = .
-                0x00000000000183b8                __etext = .
+                0x0000000000018420                . = ALIGN (0x4)
+                0x0000000000018420                __exidx_end = .
+                0x0000000000018420                __etext = .
 
-.rel.dyn        0x00000000000183b8        0x0
- .rel.iplt      0x00000000000183b8        0x0 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
+.rel.dyn        0x0000000000018420        0x0
+ .rel.iplt      0x0000000000018420        0x0 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
 
-.data           0x0000000020002000       0x68 load address 0x00000000000183b8
+.data           0x0000000020002000       0x68 load address 0x0000000000018420
                 0x0000000020002000                __data_start__ = .
  *(vtable)
  *(.data*)
@@ -250,10 +246,10 @@ END GROUP
                 0x0000000020002068                . = ALIGN (0x4)
                 0x0000000020002068                __data_end__ = .
 
-.igot.plt       0x0000000020002068        0x0 load address 0x0000000000018420
+.igot.plt       0x0000000020002068        0x0 load address 0x0000000000018488
  .igot.plt      0x0000000020002068        0x0 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
 
-.bss            0x0000000020002068       0x1c load address 0x0000000000018420
+.bss            0x0000000020002068       0x1c load address 0x0000000000018488
                 0x0000000020002068                . = ALIGN (0x4)
                 0x0000000020002068                __bss_start__ = .
  *(.bss*)
@@ -273,11 +269,11 @@ END GROUP
 .stack_dummy    0x0000000020002088      0x800
  *(.stack*)
  .stack         0x0000000020002088      0x800 _build/gcc_startup_nrf51.o
-                0x0000000020008000                __StackTop = (ORIGIN (RAM) + LENGTH (RAM))
-                0x0000000020007800                __StackLimit = (__StackTop - SIZEOF (.stack_dummy))
-                0x0000000020008000                PROVIDE (__stack = __StackTop)
+                0x0000000020004000                __StackTop = (ORIGIN (RAM) + LENGTH (RAM))
+                0x0000000020003800                __StackLimit = (__StackTop - SIZEOF (.stack_dummy))
+                0x0000000020004000                PROVIDE (__stack = __StackTop)
                 0x0000000000000001                ASSERT ((__StackLimit >= __HeapLimit), region RAM overflowed with stack)
-OUTPUT(_build/nrf51422_xxac_s110.out elf32-littlearm)
+OUTPUT(_build/nrf51822_xxaa_s110.out elf32-littlearm)
 
 .ARM.attributes
                 0x0000000000000000       0x28
