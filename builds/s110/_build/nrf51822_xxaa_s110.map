@@ -102,7 +102,7 @@ END GROUP
  *(fs_data)
                 [!provide]                        PROVIDE (__stop_fs_data = .)
 
-.text           0x0000000000018000      0x418
+.text           0x0000000000018000      0x438
  *(.Vectors)
  .Vectors       0x0000000000018000       0xc0 _build/gcc_startup_nrf51.o
                 0x0000000000018000                __Vectors
@@ -120,56 +120,59 @@ END GROUP
                 0x00000000000181f4                memset
  .text._exit    0x0000000000018204        0x4 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(_exit.o)
                 0x0000000000018204                _exit
+ .text.is_manual_peripheral_setup_needed
+                0x0000000000018208       0x74 _build/system_nrf51.o
+ .text.is_disabled_in_debug_needed
+                0x000000000001827c       0x50 _build/system_nrf51.o
  .text.SystemInit
-                0x0000000000018208       0x90 _build/system_nrf51.o
-                0x0000000000018208                SystemInit
- .text.startup.main
-                0x0000000000018298       0xd4 _build/main.o
-                0x0000000000018298                main
+                0x00000000000182cc       0x3c _build/system_nrf51.o
+                0x00000000000182cc                SystemInit
+ .text.main     0x0000000000018308       0x88 _build/main.o
+                0x0000000000018308                main
  .text.nrf_delay_ms
-                0x000000000001836c       0x3c _build/nrf_delay.o
-                0x000000000001836c                nrf_delay_ms
- .text          0x00000000000183a8       0x54 _build/gcc_startup_nrf51.o
-                0x00000000000183a8                Reset_Handler
-                0x00000000000183f0                NMI_Handler
-                0x00000000000183f2                HardFault_Handler
-                0x00000000000183f4                SVC_Handler
-                0x00000000000183f6                PendSV_Handler
-                0x00000000000183f8                SysTick_Handler
-                0x00000000000183fa                LPCOMP_IRQHandler
-                0x00000000000183fa                SWI4_IRQHandler
-                0x00000000000183fa                TEMP_IRQHandler
-                0x00000000000183fa                QDEC_IRQHandler
-                0x00000000000183fa                UART0_IRQHandler
-                0x00000000000183fa                SWI5_IRQHandler
-                0x00000000000183fa                TIMER0_IRQHandler
-                0x00000000000183fa                SWI0_IRQHandler
-                0x00000000000183fa                TIMER1_IRQHandler
-                0x00000000000183fa                ECB_IRQHandler
-                0x00000000000183fa                Default_Handler
-                0x00000000000183fa                ADC_IRQHandler
-                0x00000000000183fa                SWI3_IRQHandler
-                0x00000000000183fa                CCM_AAR_IRQHandler
-                0x00000000000183fa                WDT_IRQHandler
-                0x00000000000183fa                SWI2_IRQHandler
-                0x00000000000183fa                RNG_IRQHandler
-                0x00000000000183fa                SPI1_TWI1_IRQHandler
-                0x00000000000183fa                RTC1_IRQHandler
-                0x00000000000183fa                TIMER2_IRQHandler
-                0x00000000000183fa                SWI1_IRQHandler
-                0x00000000000183fa                SPI0_TWI0_IRQHandler
-                0x00000000000183fa                RTC0_IRQHandler
-                0x00000000000183fa                GPIOTE_IRQHandler
-                0x00000000000183fa                POWER_CLOCK_IRQHandler
-                0x00000000000183fa                RADIO_IRQHandler
+                0x0000000000018390       0x38 _build/nrf_delay.o
+                0x0000000000018390                nrf_delay_ms
+ .text          0x00000000000183c8       0x54 _build/gcc_startup_nrf51.o
+                0x00000000000183c8                Reset_Handler
+                0x0000000000018410                NMI_Handler
+                0x0000000000018412                HardFault_Handler
+                0x0000000000018414                SVC_Handler
+                0x0000000000018416                PendSV_Handler
+                0x0000000000018418                SysTick_Handler
+                0x000000000001841a                LPCOMP_IRQHandler
+                0x000000000001841a                SWI4_IRQHandler
+                0x000000000001841a                TEMP_IRQHandler
+                0x000000000001841a                QDEC_IRQHandler
+                0x000000000001841a                UART0_IRQHandler
+                0x000000000001841a                SWI5_IRQHandler
+                0x000000000001841a                TIMER0_IRQHandler
+                0x000000000001841a                SWI0_IRQHandler
+                0x000000000001841a                TIMER1_IRQHandler
+                0x000000000001841a                ECB_IRQHandler
+                0x000000000001841a                Default_Handler
+                0x000000000001841a                ADC_IRQHandler
+                0x000000000001841a                SWI3_IRQHandler
+                0x000000000001841a                CCM_AAR_IRQHandler
+                0x000000000001841a                WDT_IRQHandler
+                0x000000000001841a                SWI2_IRQHandler
+                0x000000000001841a                RNG_IRQHandler
+                0x000000000001841a                SPI1_TWI1_IRQHandler
+                0x000000000001841a                RTC1_IRQHandler
+                0x000000000001841a                TIMER2_IRQHandler
+                0x000000000001841a                SWI1_IRQHandler
+                0x000000000001841a                SPI0_TWI0_IRQHandler
+                0x000000000001841a                RTC0_IRQHandler
+                0x000000000001841a                GPIOTE_IRQHandler
+                0x000000000001841a                POWER_CLOCK_IRQHandler
+                0x000000000001841a                RADIO_IRQHandler
  *(.init)
- .init          0x00000000000183fc        0x4 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crti.o
-                0x00000000000183fc                _init
- .init          0x0000000000018400        0x8 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtn.o
+ .init          0x000000000001841c        0x4 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crti.o
+                0x000000000001841c                _init
+ .init          0x0000000000018420        0x8 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtn.o
  *(.fini)
- .fini          0x0000000000018408        0x4 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crti.o
-                0x0000000000018408                _fini
- .fini          0x000000000001840c        0x8 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtn.o
+ .fini          0x0000000000018428        0x4 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crti.o
+                0x0000000000018428                _fini
+ .fini          0x000000000001842c        0x8 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtn.o
  *crtbegin.o(.ctors)
  *crtbegin?.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o *crtend?.o) .ctors)
@@ -182,45 +185,45 @@ END GROUP
  *(.dtors)
  *(.rodata*)
  .rodata._global_impure_ptr
-                0x0000000000018414        0x4 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-impure.o)
-                0x0000000000018414                _global_impure_ptr
+                0x0000000000018434        0x4 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-impure.o)
+                0x0000000000018434                _global_impure_ptr
  *(.eh_frame*)
- .eh_frame      0x0000000000018418        0x0 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
-                0x0000000000018418                . = ALIGN (0x4)
+ .eh_frame      0x0000000000018438        0x0 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
+                0x0000000000018438                . = ALIGN (0x4)
 
-.glue_7         0x0000000000018418        0x0
- .glue_7        0x0000000000018418        0x0 linker stubs
+.glue_7         0x0000000000018438        0x0
+ .glue_7        0x0000000000018438        0x0 linker stubs
 
-.glue_7t        0x0000000000018418        0x0
- .glue_7t       0x0000000000018418        0x0 linker stubs
+.glue_7t        0x0000000000018438        0x0
+ .glue_7t       0x0000000000018438        0x0 linker stubs
 
-.vfp11_veneer   0x0000000000018418        0x0
- .vfp11_veneer  0x0000000000018418        0x0 linker stubs
+.vfp11_veneer   0x0000000000018438        0x0
+ .vfp11_veneer  0x0000000000018438        0x0 linker stubs
 
-.v4_bx          0x0000000000018418        0x0
- .v4_bx         0x0000000000018418        0x0 linker stubs
+.v4_bx          0x0000000000018438        0x0
+ .v4_bx         0x0000000000018438        0x0 linker stubs
 
-.iplt           0x0000000000018418        0x0
- .iplt          0x0000000000018418        0x0 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
+.iplt           0x0000000000018438        0x0
+ .iplt          0x0000000000018438        0x0 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
 
-.ARM.extab      0x0000000000018418        0x0
+.ARM.extab      0x0000000000018438        0x0
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x0000000000018418                . = ALIGN (0x4)
-                0x0000000000018418                __exidx_start = .
+                0x0000000000018438                . = ALIGN (0x4)
+                0x0000000000018438                __exidx_start = .
 
-.ARM.exidx      0x0000000000018418        0x8
+.ARM.exidx      0x0000000000018438        0x8
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
- .ARM.exidx     0x0000000000018418        0x8 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o
- .ARM.exidx     0x0000000000018420        0x0 _build/gcc_startup_nrf51.o
+ .ARM.exidx     0x0000000000018438        0x8 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o
+ .ARM.exidx     0x0000000000018440        0x0 _build/gcc_startup_nrf51.o
                                           0x8 (size before relaxing)
-                0x0000000000018420                . = ALIGN (0x4)
-                0x0000000000018420                __exidx_end = .
-                0x0000000000018420                __etext = .
+                0x0000000000018440                . = ALIGN (0x4)
+                0x0000000000018440                __exidx_end = .
+                0x0000000000018440                __etext = .
 
-.rel.dyn        0x0000000000018420        0x0
- .rel.iplt      0x0000000000018420        0x0 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
+.rel.dyn        0x0000000000018440        0x0
+ .rel.iplt      0x0000000000018440        0x0 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
 
-.data           0x0000000020002000       0x68 load address 0x0000000000018420
+.data           0x0000000020002000       0x68 load address 0x0000000000018440
                 0x0000000020002000                __data_start__ = .
  *(vtable)
  *(.data*)
@@ -246,10 +249,10 @@ END GROUP
                 0x0000000020002068                . = ALIGN (0x4)
                 0x0000000020002068                __data_end__ = .
 
-.igot.plt       0x0000000020002068        0x0 load address 0x0000000000018488
+.igot.plt       0x0000000020002068        0x0 load address 0x00000000000184a8
  .igot.plt      0x0000000020002068        0x0 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
 
-.bss            0x0000000020002068       0x1c load address 0x0000000000018488
+.bss            0x0000000020002068       0x1c load address 0x00000000000184a8
                 0x0000000020002068                . = ALIGN (0x4)
                 0x0000000020002068                __bss_start__ = .
  *(.bss*)
@@ -310,8 +313,51 @@ OUTPUT(_build/nrf51822_xxaa_s110.out elf32-littlearm)
  .comment       0x0000000000000079       0x7a _build/main.o
  .comment       0x0000000000000079       0x7a _build/nrf_delay.o
 
-.debug_frame    0x0000000000000000       0x94
+.debug_frame    0x0000000000000000      0x138
  .debug_frame   0x0000000000000000       0x28 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-exit.o)
  .debug_frame   0x0000000000000028       0x2c /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-init.o)
  .debug_frame   0x0000000000000054       0x20 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memset.o)
  .debug_frame   0x0000000000000074       0x20 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(_exit.o)
+ .debug_frame   0x0000000000000094       0x58 _build/system_nrf51.o
+ .debug_frame   0x00000000000000ec       0x28 _build/main.o
+ .debug_frame   0x0000000000000114       0x24 _build/nrf_delay.o
+
+.debug_info     0x0000000000000000     0x1109
+ .debug_info    0x0000000000000000      0x1db _build/system_nrf51.o
+ .debug_info    0x00000000000001db      0x580 _build/main.o
+ .debug_info    0x000000000000075b      0x9ae _build/nrf_delay.o
+
+.debug_abbrev   0x0000000000000000      0x560
+ .debug_abbrev  0x0000000000000000      0x11f _build/system_nrf51.o
+ .debug_abbrev  0x000000000000011f      0x1fb _build/main.o
+ .debug_abbrev  0x000000000000031a      0x246 _build/nrf_delay.o
+
+.debug_aranges  0x0000000000000000       0x78
+ .debug_aranges
+                0x0000000000000000       0x38 _build/system_nrf51.o
+ .debug_aranges
+                0x0000000000000038       0x20 _build/main.o
+ .debug_aranges
+                0x0000000000000058       0x20 _build/nrf_delay.o
+
+.debug_ranges   0x0000000000000000       0xc0
+ .debug_ranges  0x0000000000000000       0x28 _build/system_nrf51.o
+ .debug_ranges  0x0000000000000028       0x88 _build/main.o
+ .debug_ranges  0x00000000000000b0       0x10 _build/nrf_delay.o
+
+.debug_line     0x0000000000000000      0x8f7
+ .debug_line    0x0000000000000000      0x2d1 _build/system_nrf51.o
+ .debug_line    0x00000000000002d1      0x3cf _build/main.o
+ .debug_line    0x00000000000006a0      0x257 _build/nrf_delay.o
+
+.debug_str      0x0000000000000000      0x977
+ .debug_str     0x0000000000000000      0x291 _build/system_nrf51.o
+                                        0x2ce (size before relaxing)
+ .debug_str     0x0000000000000291      0x2b6 _build/main.o
+                                        0x497 (size before relaxing)
+ .debug_str     0x0000000000000547      0x430 _build/nrf_delay.o
+                                        0x628 (size before relaxing)
+
+.debug_loc      0x0000000000000000      0x1a7
+ .debug_loc     0x0000000000000000      0x16a _build/main.o
+ .debug_loc     0x000000000000016a       0x3d _build/nrf_delay.o

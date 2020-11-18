@@ -37,20 +37,23 @@ int main(void)
     bool toggle = false;
 
 
-    // Set all column GPIOs for the LEDs (I think) to low (sink)
+    // Set all column GPIOs for the LEDs (I think) to high (off)
     for (int n=4;n<=12;n++) {
-        nrf_gpio_cfg_output(n);
-        nrf_gpio_pin_clear(n);
-    }
-
-    // Set all row GPIOs for the LEDs to source
-    for (int n=13;n<=15;n++) {
-
         nrf_gpio_cfg_output(n);
         nrf_gpio_pin_set(n);
     }
 
-    nrf_delay_ms(2000);
+    // Set all row GPIOs for the LEDs to off as well
+    for (int n=13;n<=15;n++) {
+
+        nrf_gpio_cfg_output(n);
+        nrf_gpio_pin_clear(n);
+    }
+
+    // Enable column 1
+    nrf_gpio_pin_clear(4);
+
+    // nrf_delay_ms(2000);
 
     // Toggle LEDs.
     while (true)
@@ -60,6 +63,8 @@ int main(void)
         //     LEDS_INVERT(1 << leds_list[i]);
         //     nrf_delay_ms(500);
         // }
+
+        // Blink row 1
         if (toggle) nrf_gpio_pin_set(13);
         else nrf_gpio_pin_clear(13);
         toggle = !toggle;
