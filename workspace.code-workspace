@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"boards.h": "c",
+			"nrf_gpio.h": "c",
+			"nrf_delay.h": "c",
+			"nrf.h": "c",
+			"stdbool.h": "c",
+			"stdint.h": "c",
+			"pca20006.h": "c"
+		}
+	}
+}

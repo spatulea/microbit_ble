@@ -8,17 +8,33 @@
         ""
       ],
       "options": {
-        "cwd": "./builds/s110"
+        "cwd": "${workspaceFolder}/builds/s110"
       },
-      
-      // "problemMatcher": [
-      //   "$gcc"
-      // ],
       "group": {
         "kind": "build",
         "isDefault": true
       },
-      "detail": "Custom project task"
+      "detail": "Build using makefile",
+      "problemMatcher": [
+        "$gcc"
+      ]
+    },
+    {
+      "type": "shell",
+      "label": "build_flash",
+      "command": "make",
+      "args": [
+        "clean",
+        "nrf51822_xxaa_s110",
+        "flash"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/builds/s110"
+      },
+      "detail": "Build and flash",
+      "problemMatcher": [
+        "$gcc"
+      ]
     }
   ],
   "version": "2.0.0"

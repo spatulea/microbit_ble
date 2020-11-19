@@ -25,7 +25,8 @@
 #include "nrf_gpio.h"
 #include "boards.h"
 
-// const uint8_t leds_list[LEDS_NUMBER] = LEDS_LIST;
+
+// const uint8_t leds_list[LEDS_NUMBER] = LEDS_LIST;inte
 
 /**
  * @brief Function for application main entry.
@@ -36,6 +37,11 @@ int main(void)
     // LEDS_CONFIGURE(LEDS_MASK);
     bool toggle = false;
 
+    // toggle = true;
+
+    // for (int i=1;1<5;i++) {
+    //     toggle = !toggle;
+    // }
 
     // Set all column GPIOs for the LEDs (I think) to high (off)
     for (int n=4;n<=12;n++) {
@@ -53,10 +59,16 @@ int main(void)
     // Enable column 1
     nrf_gpio_pin_clear(4);
 
-    // nrf_delay_ms(2000);
+    nrf_delay_ms(1000);
+
+    nrf_delay_ms(100);
+
+    nrf_delay_us(10);
+
+    int check = 1;
 
     // Toggle LEDs.
-    while (true)
+    while (check<128)
     {
         // for (int i = 0; i < LEDS_NUMBER; i++)
         // {
@@ -68,7 +80,9 @@ int main(void)
         if (toggle) nrf_gpio_pin_set(13);
         else nrf_gpio_pin_clear(13);
         toggle = !toggle;
-        nrf_delay_ms(500);
+        nrf_delay_ms(100);
+        check++;
+        
     }
 }
 

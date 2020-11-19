@@ -72,13 +72,13 @@ CFLAGS += -DBOARD_PCA20006
 CFLAGS += -DBSP_DEFINES_ONLY
 CFLAGS += -mcpu=cortex-m0
 CFLAGS += -mthumb -mabi=aapcs --std=gnu99
-CFLAGS += -Wall -Werror -O3
+CFLAGS += -Wall -Werror -O0
 CFLAGS += -mfloat-abi=soft
 # keep every function in separate section. This will allow linker to dump unused functions
 CFLAGS += -ffunction-sections -fdata-sections -fno-strict-aliasing
 CFLAGS += -fno-builtin --short-enums
 CFLAGS += -ggdb
-CFLAGS += -Og
+# CFLAGS += -Og
 
 # keep every function in separate section. This will allow linker to dump unused functions
 LDFLAGS += -Xlinker -Map=$(LISTING_DIRECTORY)/$(OUTPUT_FILENAME).map
@@ -186,8 +186,10 @@ cleanobj:
 	$(RM) $(BUILD_DIRECTORIES)/*.o
 
 flash: $(MAKECMDGOALS)
-	@echo Flashing: $(OUTPUT_BINARY_DIRECTORY)/$<.hex
-	nrfjprog --program $(OUTPUT_BINARY_DIRECTORY)/$<.hex -f nrf51  --chiperase
-	nrfjprog --reset
+	@echo Flashing: $(OUTPUT_BINARY_DIRECTORY)/nrf51822_xxaa_s110.hex
+	# nrfjprog --program $(OUTPUT_BINARY_DIRECTORY)/$<.hex -f nrf51  --chiperase
+	# nrfjprog --reset
+	openocd -f interface/cmsis-dap.cfg -f target/nrf51.cfg -c "program $(OUTPUT_BINARY_DIRECTORY)/nrf51822_xxaa_s110.hex verify reset exit"
+
 
 ## Flash softdevice
