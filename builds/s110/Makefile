@@ -40,6 +40,14 @@ C_SOURCE_FILES += \
 $(abspath ../../components/toolchain/system_nrf51.c) \
 $(abspath ../../main.c) \
 $(abspath ../../components/drivers_nrf/delay/nrf_delay.c) \
+$(abspath ../../components/libraries/util/app_error.c) \
+$(abspath ../../components/libraries/fifo/app_fifo.c) \
+$(abspath ../../components/libraries/util/app_util_platform.c) \
+$(abspath ../../components/libraries/util/nrf_assert.c) \
+$(abspath ../../components/libraries/uart/retarget.c) \
+$(abspath ../../components/libraries/uart/app_uart_fifo.c) \
+$(abspath ../../components/drivers_nrf/common/nrf_drv_common.c) \
+$(abspath ../../components/drivers_nrf/uart/nrf_drv_uart.c) \
 
 #assembly files common to all targets
 ASM_SOURCE_FILES  = $(abspath ../../components/toolchain/gcc/gcc_startup_nrf51.s)
@@ -55,6 +63,14 @@ INC_PATHS += -I$(abspath ../../bsp)
 INC_PATHS += -I$(abspath ../../components/device)
 INC_PATHS += -I$(abspath ../../components/drivers_nrf/delay)
 INC_PATHS += -I$(abspath ../../components/drivers_nrf/hal)
+
+INC_PATHS += -I$(abspath ../../components/drivers_nrf/nrf_soc_nosd)
+INC_PATHS += -I$(abspath ../../components/libraries/uart)
+INC_PATHS += -I$(abspath ../../components/libraries/util)
+INC_PATHS += -I$(abspath ../../components/drivers_nrf/uart)
+INC_PATHS += -I$(abspath ../../components/drivers_nrf/common)
+INC_PATHS += -I$(abspath ../../components/drivers_nrf/config)
+INC_PATHS += -I$(abspath ../../components/libraries/fifo)
 
 OBJECT_DIRECTORY = _build
 LISTING_DIRECTORY = $(OBJECT_DIRECTORY)

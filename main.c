@@ -21,27 +21,58 @@
 
 #include <stdbool.h>
 #include <stdint.h>
+#include <stdio.h>
+#include "app_uart.h"
+#include "app_error.h"
 #include "nrf_delay.h"
 #include "nrf_gpio.h"
-#include "boards.h"
+#include "nrf.h"
+#include "bsp.h"
+// #include "nrf_drv_config.h"
+// #include "boards.h"
 
+#define UART_TX_BUF_SIZE 256                         /**< UART TX buffer size. */
+#define UART_RX_BUF_SIZE 1                           /**< UART RX buffer size. */
 
-// const uint8_t leds_list[LEDS_NUMBER] = LEDS_LIST;inte
+void uart_error_handle(app_uart_evt_t * p_event)
+{
+    if (p_event->evt_type == APP_UART_COMMUNICATION_ERROR)
+    {
+        APP_ERROR_HANDLER(p_event->data.error_communication);
+    }
+    else if (p_event->evt_type == APP_UART_FIFO_ERROR)
+    {
+        APP_ERROR_HANDLER(p_event->data.error_code);
+    }
+}
 
 /**
  * @brief Function for application main entry.
  */
 int main(void)
 {
-    // Configure LED-pins as outputs.
-    // LEDS_CONFIGURE(LEDS_MASK);
+
     bool toggle = false;
+    uint32_t err_code;
+    const app_uart_comm_params_t comm_params =
+      {
+          RX_PIN_NUMBER,
+          TX_PIN_NUMBER,
+          RTS_PIN_NUMBER,
+          CTS_PIN_NUMBER,
+          APP_UART_FLOW_CONTROL_ENABLED,
+          false,
+          UART_BAUDRATE_BAUDRATE_Baud115200
+      };
 
-    // toggle = true;
+    APP_UART_FIFO_INIT(&comm_params,
+                         UART_RX_BUF_SIZE,
+                         UART_TX_BUF_SIZE,
+                         uart_error_handle,
+                         APP_IRQ_PRIORITY_LOW,
+                         err_code);
 
-    // for (int i=1;1<5;i++) {
-    //     toggle = !toggle;
-    // }
+    APP_ERROR_CHECK(err_code);
 
     // Set all column GPIOs for the LEDs (I think) to high (off)
     for (int n=4;n<=12;n++) {
@@ -59,30 +90,30 @@ int main(void)
     // Enable column 1
     nrf_gpio_pin_clear(4);
 
-    nrf_delay_ms(1000);
+    nrf_delay_ms(10);
 
-    nrf_delay_ms(100);
+    printf("\n\rStart: \n\r");
 
-    nrf_delay_us(10);
-
-    int check = 1;
-
-    // Toggle LEDs.
-    while (check<128)
+    while (true)
     {
-        // for (int i = 0; i < LEDS_NUMBER; i++)
-        // {
-        //     LEDS_INVERT(1 << leds_list[i]);
-        //     nrf_delay_ms(500);
-        // }
+        uint8_t cr;
+        while(app_uart_get(&cr) != NRF_SUCCESS);
+        while(app_uart_put(cr) != NRF_SUCCESS);
 
-        // Blink row 1
-        if (toggle) nrf_gpio_pin_set(13);
-        else nrf_gpio_pin_clear(13);
-        toggle = !toggle;
-        nrf_delay_ms(100);
-        check++;
-        
+        if (cr == 'q' || cr == 'Q')
+        {
+            printf(" \n\rExit!\n\r");
+
+            while (true)
+            {
+                if (toggle) nrf_gpio_pin_set(13);
+                else nrf_gpio_pin_clear(13);
+                toggle = !toggle;
+                nrf_delay_ms(100);
+            }
+        }
+
+
     }
 }
 

@@ -46,11 +46,11 @@
 
 #define BUTTONS_LIST { BUTTON_0, BUTTON_1 }
 
-#define RX_PIN_NUMBER  24
-#define TX_PIN_NUMBER  9
-#define CTS_PIN_NUMBER 21
-#define RTS_PIN_NUMBER 11
-#define HWFC           true
+#define RX_PIN_NUMBER  25
+#define TX_PIN_NUMBER  24
+#define CTS_PIN_NUMBER 0
+#define RTS_PIN_NUMBER 0
+#define HWFC           false
 
 // Low frequency clock source to be used by the SoftDevice
 #define NRF_CLOCK_LFCLKSRC      NRF_CLOCK_LFCLKSRC_XTAL_20_PPM
