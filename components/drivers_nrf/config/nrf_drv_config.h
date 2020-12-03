@@ -205,6 +205,7 @@
 #if (UART0_ENABLED == 1)
 #define UART0_CONFIG_HWFC         NRF_UART_HWFC_DISABLED
 #define UART0_CONFIG_PARITY       NRF_UART_PARITY_EXCLUDED
+// TODO changed debug UART to 115200
 #define UART0_CONFIG_BAUDRATE     NRF_UART_BAUDRATE_115200
 #define UART0_CONFIG_PSEL_TXD 9
 #define UART0_CONFIG_PSEL_RXD 11
@@ -219,12 +220,14 @@
 #endif //NRF52
 #endif
 
-#define TWI0_ENABLED 0
+#define TWI0_ENABLED 1
 
 #if (TWI0_ENABLED == 1)
 #define TWI0_CONFIG_FREQUENCY    NRF_TWI_FREQ_100K
-#define TWI0_CONFIG_SCL          0
-#define TWI0_CONFIG_SDA          1
+// TODO figure out what these SCL/SDA lines do
+// They used to be SCL = 0, SDA = 1.
+#define TWI0_CONFIG_SCL          0x07
+#define TWI0_CONFIG_SDA          0x1e
 #define TWI0_CONFIG_IRQ_PRIORITY APP_IRQ_PRIORITY_LOW
 
 #define TWI0_INSTANCE_INDEX      0

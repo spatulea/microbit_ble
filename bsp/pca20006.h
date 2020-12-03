@@ -48,9 +48,12 @@
 
 #define RX_PIN_NUMBER  25
 #define TX_PIN_NUMBER  24
-#define CTS_PIN_NUMBER 0
-#define RTS_PIN_NUMBER 0
+#define CTS_PIN_NUMBER 35
+#define RTS_PIN_NUMBER 35
 #define HWFC           false
+
+#define SCL_PIN_NUMBER 0
+#define SDA_PIN_NUMBER 30
 
 // Low frequency clock source to be used by the SoftDevice
 #define NRF_CLOCK_LFCLKSRC      NRF_CLOCK_LFCLKSRC_XTAL_20_PPM

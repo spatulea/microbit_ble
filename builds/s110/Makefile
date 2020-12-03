@@ -48,6 +48,8 @@ $(abspath ../../components/libraries/uart/retarget.c) \
 $(abspath ../../components/libraries/uart/app_uart_fifo.c) \
 $(abspath ../../components/drivers_nrf/common/nrf_drv_common.c) \
 $(abspath ../../components/drivers_nrf/uart/nrf_drv_uart.c) \
+$(abspath ../../components/drivers_nrf/twi_master/nrf_drv_twi.c) \
+
 
 #assembly files common to all targets
 ASM_SOURCE_FILES  = $(abspath ../../components/toolchain/gcc/gcc_startup_nrf51.s)
@@ -68,6 +70,7 @@ INC_PATHS += -I$(abspath ../../components/drivers_nrf/nrf_soc_nosd)
 INC_PATHS += -I$(abspath ../../components/libraries/uart)
 INC_PATHS += -I$(abspath ../../components/libraries/util)
 INC_PATHS += -I$(abspath ../../components/drivers_nrf/uart)
+INC_PATHS += -I$(abspath ../../components/drivers_nrf/twi_master)
 INC_PATHS += -I$(abspath ../../components/drivers_nrf/common)
 INC_PATHS += -I$(abspath ../../components/drivers_nrf/config)
 INC_PATHS += -I$(abspath ../../components/libraries/fifo)
