@@ -49,6 +49,8 @@ $(abspath ../../components/libraries/uart/app_uart_fifo.c) \
 $(abspath ../../components/drivers_nrf/common/nrf_drv_common.c) \
 $(abspath ../../components/drivers_nrf/uart/nrf_drv_uart.c) \
 $(abspath ../../components/drivers_nrf/twi_master/nrf_drv_twi.c) \
+$(abspath ../../i2c.c) \
+$(abspath ../../LSM303AGR.c) \
 
 
 #assembly files common to all targets

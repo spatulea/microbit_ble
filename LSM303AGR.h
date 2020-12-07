@@ -29,13 +29,15 @@
 #define ACCEL_REG_OUT_Z_L   0x2C
 #define ACCEL_REG_OUT_Z_H   0x2D
 
-typedef struct  {
-  uint8_t x;
-  uint8_t y;
-  uint8_t z;
-} accelData;
+#define ACCEL_SEQ_READ_BIT  0b10000000
+
+typedef struct {
+  int16_t x;
+  int16_t y;
+  int16_t z;
+} accelData_t;
 
 void LSM303init();
-void LSM303getAccel(uint16_t * accelData);
+void LSM303getAccel(accelData_t * accelData);
 
 #endif

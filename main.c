@@ -98,9 +98,7 @@ int main(void)
 
     LSM303init();
 
-    uint16_t accelData;
-
-    LSM303getAccel(&accelData);
+    accelData_t accelData;
 
     while (true)
     {
@@ -110,11 +108,13 @@ int main(void)
 
         if (cr == 'g' || cr == 'G')
         {
-            // printf("Trying I2C\n\r");
-            // printf("Addddress %#x\n\r",regWhoAmI);
-            // i2cRead(MMA8653_address,regWhoAmI,rx_read_data,1);
-            // printf("Read: %#x\n\r",rx_read_data[0]);
-            // nrf_drv_twi_tx(&i2c, MMA8653_address, &regWhoAmI, 1, false);
+            printf("Reading accelerometer...\n\r");
+            while(1) {
+
+                LSM303getAccel(&accelData);
+                printf("%d, %d, %d\n\r",accelData.x,accelData.y,accelData.z);
+                nrf_delay_ms(100);
+            }
         }
 
         if (cr == 'q' || cr == 'Q')
