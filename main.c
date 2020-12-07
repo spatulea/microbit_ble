@@ -19,28 +19,12 @@
  *
  */
 
-#include <stdbool.h>
-#include <stdint.h>
-#include <stdio.h>
-#include "app_uart.h"
-#include "app_error.h"
-#include "nrf_delay.h"
-#include "nrf_gpio.h"
-#include "nrf.h"
-#include "bsp.h"
-#include "nrf_drv_twi.h"
-#include "app_util_platform.h"
-
-
-// #include "nrf_drv_config.h"
-// #include "boards.h"
+#include "blinky.h"
 
 #define UART_TX_BUF_SIZE 256                         /**< UART TX buffer size. */
 #define UART_RX_BUF_SIZE 1                           /**< UART RX buffer size. */
 
-uint8_t device_address = 0; // Address used to temporarily store the current address being checked
-bool device_found = false; 
-
+static const nrf_drv_twi_t i2c = NRF_DRV_TWI_INSTANCE(0);
 
 void uart_error_handle(app_uart_evt_t * p_event)
 {
@@ -54,90 +38,7 @@ void uart_error_handle(app_uart_evt_t * p_event)
     }
 }
 
-// TWI (I2C) stuff
-static const nrf_drv_twi_t i2c = NRF_DRV_TWI_INSTANCE(0);
-
-/* Indicates if I2C reading operation has ended. */
-static volatile bool m_xfer_done = true;
-/* Indicates if I2C setting mode operation has ended. */
-static volatile bool m_set_mode_done;
-
-uint8_t rx_read_data[2] = {1,2};
-
-#define MMA8653_address 0x1E
-#define MAG3110_address 0x19
-    uint8_t regWhoAmI = 0x4F;
-
-void twi_handler(nrf_drv_twi_evt_t const * p_event, void * p_context)
-{   
-
-
-    printf("Event handler called!\r\n");
-    switch(p_event->type)
-    {
-        case NRF_DRV_TWI_TX_DONE:
-            // If EVT_DONE (event done) is received a device is found and responding on that particular address
-            printf("Got TX_DONE event...Executing twi_rx\n\r");
-            nrf_drv_twi_rx(&i2c, MMA8653_address, rx_read_data, 1, false);
-            // printf("read: %#x\r\n",rx_read_data[0]);
-            break;
-        case NRF_DRV_TWI_ERROR:
-            printf("\r\n!****\r\nTWI Event Error\r\n");
-            break;
-        case NRF_DRV_TWI_RX_DONE:
-            printf("Got RX_DONE\n\r");
-            printf("read: %#x\r\n",rx_read_data[0]);
-            // printf("read: %#x\r\n",rx_read_data[1]);
-            break;
-        // case NRF_DRV_TWI_EVT_ADDRESS_NACK:
-        //     printf("No address ACK on address: %#x!\r\n", device_address);
-        //     break;
-        // case NRF_DRV_TWI_EVT_DATA_NACK:
-        //     printf("No data ACK on address: %#x!\r\n", device_address);
-        //     break;
-        default:
-            break;
-    }   
-}
-
-
-/**
- * @brief Initialize I2C bus
- */
-
-void i2cInit(void) {
-
-    ret_code_t err_code;
-    // Initialize accel/mag I2C ... nordic calls it "TWI"
-
-    const nrf_drv_twi_config_t i2cConfig = {
-       .scl                = SCL_PIN_NUMBER,
-       .sda                = SDA_PIN_NUMBER,
-       .frequency          = NRF_TWI_FREQ_100K,
-       .interrupt_priority = APP_IRQ_PRIORITY_HIGH
-    };
-
-    err_code = nrf_drv_twi_init(&i2c, &i2cConfig, twi_handler, NULL);
-    APP_ERROR_CHECK(err_code);
-
-    nrf_drv_twi_enable(&i2c);
-
-}
-
-void i2cWriteAccel(uint8_t * writeData) {
-    ret_code_t err_code;
-
-    err_code = nrf_drv_twi_tx(&i2c, MMA8653_address, writeData, sizeof(writeData),true);
-    APP_ERROR_CHECK(err_code);
-
-}
-
-void i2cReadAccel(uint8_t * readData, uint8_t numBytes) {
-    ret_code_t err_code;
-    err_code = nrf_drv_twi_rx(&i2c, MMA8653_address, readData, numBytes, true);
-    APP_ERROR_CHECK(err_code);
-
-}
+// #define MMA8653_address 0x1E
 
 /**
  * @brief Function for application main entry.
@@ -190,32 +91,16 @@ int main(void)
     nrf_delay_ms(10);
 
     // Do i2c stuff
-    i2cInit();
-    // uint8_t readData[1] = {0};
-    // Itterate through all possible 7-bit TWI addresses
-    // for(uint8_t i = 0; i <= 0x2F; i++)
-    // {
-    //     device_address = i;
-    //     // Send dummy data. If a device is present on this particular address a TWI EVT_DONE event is 
-    //     // received in the twi event handler and a message is printed to UART
-    //     printf("Trying...%d\n\r",i);
-    //     nrf_drv_twi_tx(&i2c, i, &dummy_data, 1, false);
-    //     // Delay 10 ms to allow TWI transfer to complete and UART to print messages before starting new transfer
-    //     nrf_delay_ms(10);
-    // }
-    // if(device_found)
-    // {
-    //     // Blinke LED_1 rapidly if device is found
-    //     while(true)
-    //     {
-    //         nrf_gpio_pin_toggle(LED_1);
-    //         nrf_delay_ms(100);
-    //     }
-    // }
-    // i2cReadAccel(readData,1)
+    i2cInit(&i2c);
 
 
     printf("\n\rStart: \n\r");
+
+    LSM303init();
+
+    uint16_t accelData;
+
+    LSM303getAccel(&accelData);
 
     while (true)
     {
@@ -225,9 +110,11 @@ int main(void)
 
         if (cr == 'g' || cr == 'G')
         {
-            printf("Trying I2C\n\r");
-            printf("Addddress %#x\n\r",regWhoAmI);
-            nrf_drv_twi_tx(&i2c, MMA8653_address, &regWhoAmI, 1, false);
+            // printf("Trying I2C\n\r");
+            // printf("Addddress %#x\n\r",regWhoAmI);
+            // i2cRead(MMA8653_address,regWhoAmI,rx_read_data,1);
+            // printf("Read: %#x\n\r",rx_read_data[0]);
+            // nrf_drv_twi_tx(&i2c, MMA8653_address, &regWhoAmI, 1, false);
         }
 
         if (cr == 'q' || cr == 'Q')
