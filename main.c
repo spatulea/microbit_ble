@@ -99,6 +99,7 @@ int main(void)
     LSM303init();
 
     accelData_t accelData;
+    accelData_t inclination;
 
     while (true)
     {
@@ -109,14 +110,39 @@ int main(void)
         if (cr == 'g' || cr == 'G')
         {
             printf("Reading accelerometer...\n\r");
-            while(1) {
+            uint8_t i = 0;
+            while(i < 100) {
+                // Use software "interrupt" driven sampling set by the accelerometer
+                // power mode / datarate setting for now
+                // TODO: switch to interrupt-pin driven sampling and low-power mode
+                if (LSM303dataReady()) {
+                    LSM303getAccel(&accelData);
+                    printf("%6.2f, %6.2f, %6.2f\n\r",accelData.x,accelData.y,accelData.z);
+                    //mgToDeg(&accelData,&inclination);
+                    //printf("%6.2f, %6.2f, %6.2f\n\r",inclination.x,inclination.y,inclination.z);
 
-                LSM303getAccel(&accelData);
-                printf("%d, %d, %d\n\r",accelData.x,accelData.y,accelData.z);
-                nrf_delay_ms(100);
+                    i++;
+                }
             }
         }
+        if (cr == 'h' || cr == 'H')
+        {
+            printf("Reading accelerometer...\n\r");
+            uint8_t i = 0;
+            while(i < 100) {
+                // Use software "interrupt" driven sampling set by the accelerometer
+                // power mode / datarate setting for now
+                // TODO: switch to interrupt-pin driven sampling and low-power mode
+                if (LSM303dataReady()) {
+                    LSM303getAccel(&accelData);
+                    //printf("%6.2f, %6.2f, %6.2f\n\r",accelData.x,accelData.y,accelData.z);
+                    mgToDeg(&accelData,&inclination);
+                    printf("%6.2f, %6.2f, %6.2f\n\r",inclination.x,inclination.y,inclination.z);
 
+                    i++;
+                }
+            }
+        }
         if (cr == 'q' || cr == 'Q')
         {
             printf(" \n\rExit!\n\r");

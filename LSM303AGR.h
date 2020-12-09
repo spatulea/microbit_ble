@@ -32,12 +32,15 @@
 #define ACCEL_SEQ_READ_BIT  0b10000000
 
 typedef struct {
-  int16_t x;
-  int16_t y;
-  int16_t z;
+  float x;
+  float y;
+  float z;
 } accelData_t;
 
 void LSM303init();
 void LSM303getAccel(accelData_t * accelData);
+bool LSM303dataReady();
+float LSM303bitsToMg(int16_t bits);
+void mgToDeg(accelData_t * accelData, accelData_t * inclinationData);
 
 #endif

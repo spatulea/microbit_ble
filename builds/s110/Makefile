@@ -109,6 +109,12 @@ LDFLAGS += -mcpu=cortex-m0
 LDFLAGS += -Wl,--gc-sections
 # use newlib in nano version
 LDFLAGS += --specs=nano.specs -lc -lnosys
+# make it print floats for debug
+# TODO: remove for "production"
+LDFLAGS += -u _printf_float
+
+# Linker libraries (after linker objects)
+LIBS += -lm
 
 # Assembler flags
 ASMFLAGS += -x assembler-with-cpp

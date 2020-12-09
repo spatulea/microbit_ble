@@ -83,7 +83,7 @@ void i2cWrite(uint8_t i2cAddress , uint8_t * writeData, uint8_t numBytes) {
 
     // I like blocking functions for peripherals.. so we block until the write is done
     while(g_i2cDoWrite) {
-      __WFE(); // TODO: check what __WFE really does
+      // __WFE(); // TODO: check what __WFE really does
     }
     APP_ERROR_CHECK(err_code);
 }

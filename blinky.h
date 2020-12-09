@@ -4,6 +4,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
+#include <math.h>
 #include "app_uart.h"
 #include "app_error.h"
 #include "nrf_delay.h"
