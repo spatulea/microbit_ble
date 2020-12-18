@@ -94,7 +94,7 @@ int main(void)
     i2cInit(&i2c);
 
 
-    printf("\n\rStart: \n\r");
+    DBGPRINT("\n\rStart: \n\r");
 
     LSM303init();
 
@@ -109,7 +109,7 @@ int main(void)
 
         if (cr == 'g' || cr == 'G')
         {
-            printf("Reading accelerometer...\n\r");
+            DBGPRINT("Reading accelerometer...\n\r");
             uint8_t i = 0;
             while(i < 100) {
                 // Use software "interrupt" driven sampling set by the accelerometer
@@ -117,9 +117,9 @@ int main(void)
                 // TODO: switch to interrupt-pin driven sampling and low-power mode
                 if (LSM303dataReady()) {
                     LSM303getAccel(&accelData);
-                    printf("%6.2f, %6.2f, %6.2f\n\r",accelData.x,accelData.y,accelData.z);
+                    DBGPRINT("%6.2f, %6.2f, %6.2f\n\r",accelData.x,accelData.y,accelData.z);
                     //mgToDeg(&accelData,&inclination);
-                    //printf("%6.2f, %6.2f, %6.2f\n\r",inclination.x,inclination.y,inclination.z);
+                    //DBGPRINT("%6.2f, %6.2f, %6.2f\n\r",inclination.x,inclination.y,inclination.z);
 
                     i++;
                 }
@@ -127,7 +127,7 @@ int main(void)
         }
         if (cr == 'h' || cr == 'H')
         {
-            printf("Reading accelerometer...\n\r");
+            DBGPRINT("Reading accelerometer...\n\r");
             uint8_t i = 0;
             while(i < 100) {
                 // Use software "interrupt" driven sampling set by the accelerometer
@@ -135,9 +135,9 @@ int main(void)
                 // TODO: switch to interrupt-pin driven sampling and low-power mode
                 if (LSM303dataReady()) {
                     LSM303getAccel(&accelData);
-                    //printf("%6.2f, %6.2f, %6.2f\n\r",accelData.x,accelData.y,accelData.z);
+                    //DBGPRINT("%6.2f, %6.2f, %6.2f\n\r",accelData.x,accelData.y,accelData.z);
                     mgToDeg(&accelData,&inclination);
-                    printf("%6.2f, %6.2f, %6.2f\n\r",inclination.x,inclination.y,inclination.z);
+                    DBGPRINT("%6.2f, %6.2f, %6.2f\n\r",inclination.x,inclination.y,inclination.z);
 
                     i++;
                 }
@@ -145,7 +145,7 @@ int main(void)
         }
         if (cr == 'q' || cr == 'Q')
         {
-            printf(" \n\rExit!\n\r");
+            DBGPRINT(" \n\rExit!\n\r");
 
             while (true)
             {

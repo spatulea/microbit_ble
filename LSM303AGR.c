@@ -20,8 +20,8 @@ void LSM303getAccel(accelData_t * accelData) {
   uint8_t accelRawData[6] = {0,0,0,0,0,0};
 
   i2cRead(ACCEL_I2C_ADDRESS,(ACCEL_REG_OUT_X_L | ACCEL_SEQ_READ_BIT),accelRawData,6);
-  // printf("split: %#x,%#x\n\r",accelRawData[1],accelRawData[0]);
-  // printf("combined: %#x\n\r",((*(int16_t*) &accelRawData[0]) >> 6));
+  // DBGPRINT("split: %#x,%#x\n\r",accelRawData[1],accelRawData[0]);
+  // DBGPRINT("combined: %#x\n\r",((*(int16_t*) &accelRawData[0]) >> 6));
   // Convert the two left-justified uint_8 to a single int16_t
   accelData->x = LSM303bitsToMg((*(int16_t*) &accelRawData[0]) >> 6);
   accelData->y = LSM303bitsToMg((*(int16_t*) &accelRawData[2]) >> 6);

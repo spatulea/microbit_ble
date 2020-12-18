@@ -17,7 +17,7 @@ void twi_handler(nrf_drv_twi_evt_t const * p_event, void * p_context)
 {   
 
 
-    // printf("Event handler called!\r\n");
+    // DBGPRINT("Event handler called!\r\n");
     switch(p_event->type)
     {
         case NRF_DRV_TWI_TX_DONE:
@@ -31,7 +31,7 @@ void twi_handler(nrf_drv_twi_evt_t const * p_event, void * p_context)
           break;
 
         case NRF_DRV_TWI_ERROR:
-          printf("\r\n!****\r\nTWI Event Error\r\n");
+          DBGPRINT("\r\n!****\r\nTWI Event Error\r\n");
             g_i2cDoRead = false;
           break;
 
@@ -40,10 +40,10 @@ void twi_handler(nrf_drv_twi_evt_t const * p_event, void * p_context)
           g_i2cDoRead = false;
           break;
         // case NRF_DRV_TWI_EVT_ADDRESS_NACK:
-        //     printf("No address ACK on address: %#x!\r\n", device_address);
+        //     DBGPRINT("No address ACK on address: %#x!\r\n", device_address);
         //     break;
         // case NRF_DRV_TWI_EVT_DATA_NACK:
-        //     printf("No data ACK on address: %#x!\r\n", device_address);
+        //     DBGPRINT("No data ACK on address: %#x!\r\n", device_address);
         //     break;
         default:
           break;

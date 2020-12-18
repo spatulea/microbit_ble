@@ -1,6 +1,11 @@
 #ifndef BLINKY_H
 #define BLINKY_H
 
+#define DEBUG 1
+
+#define DBGPRINT(...) \
+            do { if (DEBUG) printf(__VA_ARGS__); } while (0)
+
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
