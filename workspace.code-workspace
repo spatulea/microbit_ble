@@ -13,7 +13,8 @@
 			"stdbool.h": "c",
 			"stdint.h": "c",
 			"pca20006.h": "c",
-			"nrf_drv_twi.h": "c"
+			"nrf_drv_twi.h": "c",
+			"limits": "c"
 		}
 	}
 }

@@ -24,6 +24,7 @@
 #define UART_TX_BUF_SIZE 256                         /**< UART TX buffer size. */
 #define UART_RX_BUF_SIZE 1                           /**< UART RX buffer size. */
 
+// I2C instance for accelerometer
 static const nrf_drv_twi_t i2c = NRF_DRV_TWI_INSTANCE(0);
 
 void uart_error_handle(app_uart_evt_t * p_event)
@@ -115,14 +116,14 @@ int main(void)
                 // Use software "interrupt" driven sampling set by the accelerometer
                 // power mode / datarate setting for now
                 // TODO: switch to interrupt-pin driven sampling and low-power mode
-                if (LSM303dataReady()) {
+                // if (LSM303dataReady()) {
                     LSM303getAccel(&accelData);
                     DBGPRINT("%6.2f, %6.2f, %6.2f\n\r",accelData.x,accelData.y,accelData.z);
                     //mgToDeg(&accelData,&inclination);
                     //DBGPRINT("%6.2f, %6.2f, %6.2f\n\r",inclination.x,inclination.y,inclination.z);
 
                     i++;
-                }
+                // }
             }
         }
         if (cr == 'h' || cr == 'H')
@@ -133,16 +134,22 @@ int main(void)
                 // Use software "interrupt" driven sampling set by the accelerometer
                 // power mode / datarate setting for now
                 // TODO: switch to interrupt-pin driven sampling and low-power mode
-                if (LSM303dataReady()) {
+                // if (LSM303dataReady()) {
                     LSM303getAccel(&accelData);
                     //DBGPRINT("%6.2f, %6.2f, %6.2f\n\r",accelData.x,accelData.y,accelData.z);
                     mgToDeg(&accelData,&inclination);
                     DBGPRINT("%6.2f, %6.2f, %6.2f\n\r",inclination.x,inclination.y,inclination.z);
 
                     i++;
-                }
+                // }
             }
         }
+        if (cr == 'c' || cr == 'C')
+        {
+            calValues_t LSM303calData;
+            LSM303calibrate(&LSM303calData);
+        }
+
         if (cr == 'q' || cr == 'Q')
         {
             DBGPRINT(" \n\rExit!\n\r");

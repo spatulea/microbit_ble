@@ -19,6 +19,7 @@ void LSM303init() {
 void LSM303getAccel(accelData_t * accelData) {
   uint8_t accelRawData[6] = {0,0,0,0,0,0};
 
+  while(!LSM303dataReady());
   i2cRead(ACCEL_I2C_ADDRESS,(ACCEL_REG_OUT_X_L | ACCEL_SEQ_READ_BIT),accelRawData,6);
   // DBGPRINT("split: %#x,%#x\n\r",accelRawData[1],accelRawData[0]);
   // DBGPRINT("combined: %#x\n\r",((*(int16_t*) &accelRawData[0]) >> 6));
@@ -47,7 +48,6 @@ void mgToDeg(accelData_t * accelData, accelData_t * inclinationData) {
   // -------------------------------
 
   // // Convert to double floating point
-  // // TODO confirm values are scaled by 1000. Confirmed this is wrong, but kinda OK for now. Should use the FS value to calculate correct gs
   // double accelX = double(acceleration[0])/1000.0;
   // double accelY = double(acceleration[1])/1000.0;
   // double accelZ = double(acceleration[2])/1000.0;
@@ -59,3 +59,46 @@ void mgToDeg(accelData_t * accelData, accelData_t * inclinationData) {
   inclinationData->z = atan((sqrt(exp2(accelData->x)+exp2(accelData->y)))/accelData->z)*180/M_PI;
 }
 // -------------------------------
+
+void LSM303calibrate(calValues_t * LSM303calData) {
+
+  accelData_t accelData;
+
+  // Zero out any previous calibration values
+  LSM303calData->xMin = 0.0f;
+  LSM303calData->yMin = 0.0f;
+  LSM303calData->zMin = 0.0f;
+
+  LSM303calData->xMax = 0.0f;
+  LSM303calData->yMax = 0.0f;
+  LSM303calData->zMax = 0.0f;
+
+  LSM303calData->xRange = 0.0f;
+  LSM303calData->yRange = 0.0f;
+  LSM303calData->zRange = 0.0f;
+
+  DBGPRINT("Starting calibration...\n\r");
+  DBGPRINT("Move all axes toward/away from gravity\n\r");
+
+    //TODO: replace with a better check for complete calibration
+    //  Maybe look for small delta in newest min/max readings
+  for (int i = 0; i < 1000; i++) {
+    LSM303getAccel(&accelData);
+    
+    // Update minimums
+    if (accelData.x < LSM303calData->xMin) LSM303calData->xMin = accelData.x;
+    if (accelData.y < LSM303calData->yMin) LSM303calData->yMin = accelData.y;
+    if (accelData.z < LSM303calData->zMin) LSM303calData->zMin = accelData.z;
+
+    // Update maximums
+    if (accelData.x > LSM303calData->xMax) LSM303calData->xMax = accelData.x;
+    if (accelData.y > LSM303calData->yMax) LSM303calData->yMax = accelData.y;
+    if (accelData.z > LSM303calData->zMax) LSM303calData->zMax = accelData.z;
+  }
+  
+  // Compute the range
+  LSM303calData->xRange = LSM303calData->xMax - LSM303calData->xMin;
+  LSM303calData->yRange = LSM303calData->yMax - LSM303calData->yMin;
+  LSM303calData->zRange = LSM303calData->zMax - LSM303calData->zMin;
+
+}

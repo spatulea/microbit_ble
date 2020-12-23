@@ -37,10 +37,26 @@ typedef struct {
   float z;
 } accelData_t;
 
+typedef struct {
+  float xMin;
+  float xMax;
+  float xRange;
+  
+  float yMin;
+  float yMax;
+  float yRange;
+
+  float zMin;
+  float zMax;
+  float zRange;
+} calValues_t;
+
+
 void LSM303init();
 void LSM303getAccel(accelData_t * accelData);
 bool LSM303dataReady();
 float LSM303bitsToMg(int16_t bits);
 void mgToDeg(accelData_t * accelData, accelData_t * inclinationData);
+void LSM303calibrate(calValues_t * LSM303calData);
 
 #endif
