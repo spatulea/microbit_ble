@@ -1,9 +1,10 @@
 #include "blinky.h"
 
 static uint8_t writeRegData[2] = {0, 0};
+// Calibration values for accelerometer
+static calValues_t LSM303calData;
  
 // static uint8_t readRegData[2];
-
 void LSM303init() {
 
   // Set 10Hz rate and enable all axes
@@ -27,6 +28,16 @@ void LSM303getAccel(accelData_t * accelData) {
   accelData->x = LSM303bitsToMg((*(int16_t*) &accelRawData[0]) >> 6);
   accelData->y = LSM303bitsToMg((*(int16_t*) &accelRawData[2]) >> 6);
   accelData->z = LSM303bitsToMg((*(int16_t*) &accelRawData[4]) >> 6);
+
+  // Apply calibration
+  if (LSM303calData.calibrated) {
+    accelData->x = (((accelData->x - LSM303calData.xMin) * ACCEL_RANGE_REF) /
+                    LSM303calData.xRange) + ACCEL_MIN_REF;
+    accelData->y = (((accelData->y - LSM303calData.yMin) * ACCEL_RANGE_REF) /
+                  LSM303calData.yRange) + ACCEL_MIN_REF;
+    accelData->z = (((accelData->z - LSM303calData.zMin) * ACCEL_RANGE_REF) /
+                    LSM303calData.zRange) + ACCEL_MIN_REF;
+  }
 }
 
 bool LSM303dataReady() {
@@ -40,7 +51,7 @@ bool LSM303dataReady() {
 }
 
 float LSM303bitsToMg(int16_t bits) {
-  return (((float)bits /*/ 64.0f */) * 3.9f / 1000.0f) * 9.8f;
+  return (((float)bits) * 3.9f / 1000.0f) * 9.8f;
 }
 
 void mgToDeg(accelData_t * accelData, accelData_t * inclinationData) {
@@ -60,45 +71,69 @@ void mgToDeg(accelData_t * accelData, accelData_t * inclinationData) {
 }
 // -------------------------------
 
-void LSM303calibrate(calValues_t * LSM303calData) {
+
+// Load default/ideal cal values
+void LSM303defaultCal() {
+  LSM303calData.calibrated = false;
+
+  LSM303calData.xMin = -9.8f;
+  LSM303calData.yMin = -9.8f;
+  LSM303calData.zMin = -9.8f;
+
+  LSM303calData.xMax = 9.8f;
+  LSM303calData.yMax = 9.8f;
+  LSM303calData.zMax = 9.8f;
+
+  LSM303calData.xRange = 19.6f;
+  LSM303calData.yRange = 19.6f;
+  LSM303calData.zRange = 19.6f;
+}
+
+void LSM303calibrate() {
 
   accelData_t accelData;
 
   // Zero out any previous calibration values
-  LSM303calData->xMin = 0.0f;
-  LSM303calData->yMin = 0.0f;
-  LSM303calData->zMin = 0.0f;
+  LSM303calData.xMin = 0.0f;
+  LSM303calData.yMin = 0.0f;
+  LSM303calData.zMin = 0.0f;
 
-  LSM303calData->xMax = 0.0f;
-  LSM303calData->yMax = 0.0f;
-  LSM303calData->zMax = 0.0f;
+  LSM303calData.xMax = 0.0f;
+  LSM303calData.yMax = 0.0f;
+  LSM303calData.zMax = 0.0f;
 
-  LSM303calData->xRange = 0.0f;
-  LSM303calData->yRange = 0.0f;
-  LSM303calData->zRange = 0.0f;
+  LSM303calData.xRange = 0.0f;
+  LSM303calData.yRange = 0.0f;
+  LSM303calData.zRange = 0.0f;
 
   DBGPRINT("Starting calibration...\n\r");
   DBGPRINT("Move all axes toward/away from gravity\n\r");
 
     //TODO: replace with a better check for complete calibration
     //  Maybe look for small delta in newest min/max readings
-  for (int i = 0; i < 1000; i++) {
+  for (int i = 0; i < 300; i++) {
     LSM303getAccel(&accelData);
     
     // Update minimums
-    if (accelData.x < LSM303calData->xMin) LSM303calData->xMin = accelData.x;
-    if (accelData.y < LSM303calData->yMin) LSM303calData->yMin = accelData.y;
-    if (accelData.z < LSM303calData->zMin) LSM303calData->zMin = accelData.z;
+    if (accelData.x < LSM303calData.xMin) LSM303calData.xMin = accelData.x;
+    if (accelData.y < LSM303calData.yMin) LSM303calData.yMin = accelData.y;
+    if (accelData.z < LSM303calData.zMin) LSM303calData.zMin = accelData.z;
 
     // Update maximums
-    if (accelData.x > LSM303calData->xMax) LSM303calData->xMax = accelData.x;
-    if (accelData.y > LSM303calData->yMax) LSM303calData->yMax = accelData.y;
-    if (accelData.z > LSM303calData->zMax) LSM303calData->zMax = accelData.z;
+    if (accelData.x > LSM303calData.xMax) LSM303calData.xMax = accelData.x;
+    if (accelData.y > LSM303calData.yMax) LSM303calData.yMax = accelData.y;
+    if (accelData.z > LSM303calData.zMax) LSM303calData.zMax = accelData.z;
+    DBGPRINT("%6.2f,%6.2f | %6.2f,%6.2f | %6.2f,%6.2f\n\r",
+      LSM303calData.xMin, LSM303calData.xMax,
+      LSM303calData.yMin, LSM303calData.yMax,
+      LSM303calData.zMin, LSM303calData.zMax);
   }
   
   // Compute the range
-  LSM303calData->xRange = LSM303calData->xMax - LSM303calData->xMin;
-  LSM303calData->yRange = LSM303calData->yMax - LSM303calData->yMin;
-  LSM303calData->zRange = LSM303calData->zMax - LSM303calData->zMin;
+  LSM303calData.xRange = LSM303calData.xMax - LSM303calData.xMin;
+  LSM303calData.yRange = LSM303calData.yMax - LSM303calData.yMin;
+  LSM303calData.zRange = LSM303calData.zMax - LSM303calData.zMin;
+
+  LSM303calData.calibrated = true;
 
 }

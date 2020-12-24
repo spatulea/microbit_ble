@@ -39,6 +39,8 @@ void uart_error_handle(app_uart_evt_t * p_event)
     }
 }
 
+
+
 // #define MMA8653_address 0x1E
 
 /**
@@ -72,6 +74,9 @@ int main(void)
 
     APP_ERROR_CHECK(err_code);
 
+
+    // Initialize to ideal values in case we don't calibrate later
+    LSM303defaultCal();
 
     // Set all column GPIOs for the LEDs (I think) to high (off)
     for (int n=4;n<=12;n++) {
@@ -146,8 +151,7 @@ int main(void)
         }
         if (cr == 'c' || cr == 'C')
         {
-            calValues_t LSM303calData;
-            LSM303calibrate(&LSM303calData);
+            LSM303calibrate();
         }
 
         if (cr == 'q' || cr == 'Q')

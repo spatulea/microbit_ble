@@ -31,6 +31,10 @@
 
 #define ACCEL_SEQ_READ_BIT  0b10000000
 
+#define ACCEL_RANGE_REF 19.6f
+#define ACCEL_MIN_REF -9.8f
+#define ACCEL_MAX_REF 9.8f
+
 typedef struct {
   float x;
   float y;
@@ -38,6 +42,8 @@ typedef struct {
 } accelData_t;
 
 typedef struct {
+  bool calibrated;
+
   float xMin;
   float xMax;
   float xRange;
@@ -57,6 +63,7 @@ void LSM303getAccel(accelData_t * accelData);
 bool LSM303dataReady();
 float LSM303bitsToMg(int16_t bits);
 void mgToDeg(accelData_t * accelData, accelData_t * inclinationData);
-void LSM303calibrate(calValues_t * LSM303calData);
+void LSM303defaultCal();
+void LSM303calibrate();
 
 #endif
