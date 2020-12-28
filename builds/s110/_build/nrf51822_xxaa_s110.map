@@ -1664,7 +1664,7 @@ END GROUP
  *(fs_data)
                 [!provide]                        PROVIDE (__stop_fs_data = .)
 
-.text           0x0000000000018000     0xa1f4
+.text           0x0000000000018000     0xa284
  *(.Vectors)
  .Vectors       0x0000000000018000       0xc0 _build/gcc_startup_nrf51.o
                 0x0000000000018000                __Vectors
@@ -2011,262 +2011,262 @@ END GROUP
                 0x000000000001c778       0x28 _build/LSM303AGR.o
                 0x000000000001c778                LSM303init
  .text.LSM303getAccel
-                0x000000000001c7a0      0x154 _build/LSM303AGR.o
+                0x000000000001c7a0      0x1e8 _build/LSM303AGR.o
                 0x000000000001c7a0                LSM303getAccel
  .text.LSM303dataReady
-                0x000000000001c8f4       0x38 _build/LSM303AGR.o
-                0x000000000001c8f4                LSM303dataReady
+                0x000000000001c988       0x38 _build/LSM303AGR.o
+                0x000000000001c988                LSM303dataReady
  .text.LSM303bitsToMg
-                0x000000000001c92c       0x4c _build/LSM303AGR.o
-                0x000000000001c92c                LSM303bitsToMg
- .text.mgToDeg  0x000000000001c978      0x1e8 _build/LSM303AGR.o
-                0x000000000001c978                mgToDeg
+                0x000000000001c9c0       0x4c _build/LSM303AGR.o
+                0x000000000001c9c0                LSM303bitsToMg
+ .text.mgToDeg  0x000000000001ca0c      0x1e8 _build/LSM303AGR.o
+                0x000000000001ca0c                mgToDeg
  .text.LSM303defaultCal
-                0x000000000001cb60       0x58 _build/LSM303AGR.o
-                0x000000000001cb60                LSM303defaultCal
+                0x000000000001cbf4       0x58 _build/LSM303AGR.o
+                0x000000000001cbf4                LSM303defaultCal
  .text.LSM303calibrate
-                0x000000000001cbb8      0x208 _build/LSM303AGR.o
-                0x000000000001cbb8                LSM303calibrate
- .text          0x000000000001cdc0       0x54 _build/gcc_startup_nrf51.o
-                0x000000000001cdc0                Reset_Handler
-                0x000000000001ce08                NMI_Handler
-                0x000000000001ce0a                HardFault_Handler
-                0x000000000001ce0c                SVC_Handler
-                0x000000000001ce0e                PendSV_Handler
-                0x000000000001ce10                SysTick_Handler
-                0x000000000001ce12                SWI4_IRQHandler
-                0x000000000001ce12                TEMP_IRQHandler
-                0x000000000001ce12                QDEC_IRQHandler
-                0x000000000001ce12                SWI5_IRQHandler
-                0x000000000001ce12                TIMER0_IRQHandler
-                0x000000000001ce12                SWI0_IRQHandler
-                0x000000000001ce12                TIMER1_IRQHandler
-                0x000000000001ce12                ECB_IRQHandler
-                0x000000000001ce12                Default_Handler
-                0x000000000001ce12                ADC_IRQHandler
-                0x000000000001ce12                SWI3_IRQHandler
-                0x000000000001ce12                CCM_AAR_IRQHandler
-                0x000000000001ce12                WDT_IRQHandler
-                0x000000000001ce12                SWI2_IRQHandler
-                0x000000000001ce12                RNG_IRQHandler
-                0x000000000001ce12                SPI1_TWI1_IRQHandler
-                0x000000000001ce12                RTC1_IRQHandler
-                0x000000000001ce12                TIMER2_IRQHandler
-                0x000000000001ce12                SWI1_IRQHandler
-                0x000000000001ce12                RTC0_IRQHandler
-                0x000000000001ce12                GPIOTE_IRQHandler
-                0x000000000001ce12                POWER_CLOCK_IRQHandler
-                0x000000000001ce12                RADIO_IRQHandler
-                0x000000000001ce12                LPCOMP_IRQHandler
- .text.atan     0x000000000001ce14      0x338 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a(lib_a-s_atan.o)
-                0x000000000001ce14                atan
- .text.fabs     0x000000000001d14c        0x8 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a(lib_a-s_fabs.o)
-                0x000000000001d14c                fabs
- .text.exp2     0x000000000001d154       0x14 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a(lib_a-w_exp2.o)
-                0x000000000001d154                exp2
- .text.pow      0x000000000001d168      0x37c /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a(lib_a-w_pow.o)
-                0x000000000001d168                pow
- .text.sqrt     0x000000000001d4e4       0xc8 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a(lib_a-w_sqrt.o)
-                0x000000000001d4e4                sqrt
+                0x000000000001cc4c      0x208 _build/LSM303AGR.o
+                0x000000000001cc4c                LSM303calibrate
+ .text          0x000000000001ce54       0x54 _build/gcc_startup_nrf51.o
+                0x000000000001ce54                Reset_Handler
+                0x000000000001ce9c                NMI_Handler
+                0x000000000001ce9e                HardFault_Handler
+                0x000000000001cea0                SVC_Handler
+                0x000000000001cea2                PendSV_Handler
+                0x000000000001cea4                SysTick_Handler
+                0x000000000001cea6                SWI4_IRQHandler
+                0x000000000001cea6                TEMP_IRQHandler
+                0x000000000001cea6                QDEC_IRQHandler
+                0x000000000001cea6                SWI5_IRQHandler
+                0x000000000001cea6                TIMER0_IRQHandler
+                0x000000000001cea6                SWI0_IRQHandler
+                0x000000000001cea6                TIMER1_IRQHandler
+                0x000000000001cea6                ECB_IRQHandler
+                0x000000000001cea6                Default_Handler
+                0x000000000001cea6                ADC_IRQHandler
+                0x000000000001cea6                SWI3_IRQHandler
+                0x000000000001cea6                CCM_AAR_IRQHandler
+                0x000000000001cea6                WDT_IRQHandler
+                0x000000000001cea6                SWI2_IRQHandler
+                0x000000000001cea6                RNG_IRQHandler
+                0x000000000001cea6                SPI1_TWI1_IRQHandler
+                0x000000000001cea6                RTC1_IRQHandler
+                0x000000000001cea6                TIMER2_IRQHandler
+                0x000000000001cea6                SWI1_IRQHandler
+                0x000000000001cea6                RTC0_IRQHandler
+                0x000000000001cea6                GPIOTE_IRQHandler
+                0x000000000001cea6                POWER_CLOCK_IRQHandler
+                0x000000000001cea6                RADIO_IRQHandler
+                0x000000000001cea6                LPCOMP_IRQHandler
+ .text.atan     0x000000000001cea8      0x338 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a(lib_a-s_atan.o)
+                0x000000000001cea8                atan
+ .text.fabs     0x000000000001d1e0        0x8 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a(lib_a-s_fabs.o)
+                0x000000000001d1e0                fabs
+ .text.exp2     0x000000000001d1e8       0x14 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a(lib_a-w_exp2.o)
+                0x000000000001d1e8                exp2
+ .text.pow      0x000000000001d1fc      0x37c /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a(lib_a-w_pow.o)
+                0x000000000001d1fc                pow
+ .text.sqrt     0x000000000001d578       0xc8 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a(lib_a-w_sqrt.o)
+                0x000000000001d578                sqrt
  .text.__ieee754_pow
-                0x000000000001d5ac      0xad8 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a(lib_a-e_pow.o)
-                0x000000000001d5ac                __ieee754_pow
+                0x000000000001d640      0xad8 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a(lib_a-e_pow.o)
+                0x000000000001d640                __ieee754_pow
  .text.__ieee754_sqrt
-                0x000000000001e084      0x1b0 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a(lib_a-e_sqrt.o)
-                0x000000000001e084                __ieee754_sqrt
- .text.finite   0x000000000001e234       0x14 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a(lib_a-s_finite.o)
-                0x000000000001e234                finite
- .text.matherr  0x000000000001e248        0x4 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a(lib_a-s_matherr.o)
-                0x000000000001e248                matherr
- .text.nan      0x000000000001e24c        0xc /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a(lib_a-s_nan.o)
-                0x000000000001e24c                nan
- .text.rint     0x000000000001e258      0x120 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a(lib_a-s_rint.o)
-                0x000000000001e258                rint
- .text.scalbn   0x000000000001e378       0xf8 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a(lib_a-s_scalbn.o)
-                0x000000000001e378                scalbn
- .text          0x000000000001e470       0x14 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_thumb1_case_uqi.o)
-                0x000000000001e470                __gnu_thumb1_case_uqi
- .text          0x000000000001e484       0x14 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_thumb1_case_shi.o)
-                0x000000000001e484                __gnu_thumb1_case_shi
- .text          0x000000000001e498      0x114 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
-                0x000000000001e498                __udivsi3
-                0x000000000001e498                __aeabi_uidiv
-                0x000000000001e5a4                __aeabi_uidivmod
- .text          0x000000000001e5ac      0x1d4 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
-                0x000000000001e5ac                __aeabi_idiv
-                0x000000000001e5ac                __divsi3
-                0x000000000001e778                __aeabi_idivmod
- .text          0x000000000001e780        0x4 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
-                0x000000000001e780                __aeabi_ldiv0
-                0x000000000001e780                __aeabi_idiv0
- .text          0x000000000001e784       0x7c /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_arm_cmpdf2.o)
-                0x000000000001e784                __aeabi_cdrcmple
-                0x000000000001e794                __aeabi_cdcmple
-                0x000000000001e794                __aeabi_cdcmpeq
-                0x000000000001e7a4                __aeabi_dcmpeq
-                0x000000000001e7b0                __aeabi_dcmplt
-                0x000000000001e7c4                __aeabi_dcmple
-                0x000000000001e7d8                __aeabi_dcmpgt
-                0x000000000001e7ec                __aeabi_dcmpge
- .text          0x000000000001e800       0x74 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_arm_cmpsf2.o)
-                0x000000000001e800                __aeabi_cfrcmple
-                0x000000000001e808                __aeabi_cfcmple
-                0x000000000001e808                __aeabi_cfcmpeq
-                0x000000000001e818                __aeabi_fcmpeq
-                0x000000000001e824                __aeabi_fcmplt
-                0x000000000001e838                __aeabi_fcmple
-                0x000000000001e84c                __aeabi_fcmpgt
-                0x000000000001e860                __aeabi_fcmpge
- .text          0x000000000001e874      0x218 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(divsf3.o)
-                0x000000000001e874                __aeabi_fdiv
- .text          0x000000000001ea8c       0x50 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(eqsf2.o)
-                0x000000000001ea8c                __nesf2
-                0x000000000001ea8c                __eqsf2
- .text          0x000000000001eadc       0x98 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(gesf2.o)
-                0x000000000001eadc                __gtsf2
-                0x000000000001eadc                __gesf2
- .text          0x000000000001eb74       0x94 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(lesf2.o)
-                0x000000000001eb74                __lesf2
-                0x000000000001eb74                __ltsf2
- .text          0x000000000001ec08      0x234 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(mulsf3.o)
-                0x000000000001ec08                __aeabi_fmul
- .text          0x000000000001ee3c      0x390 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(subsf3.o)
-                0x000000000001ee3c                __aeabi_fsub
- .text          0x000000000001f1cc       0x8c /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(floatsisf.o)
-                0x000000000001f1cc                __aeabi_i2f
- .text          0x000000000001f258      0x6d4 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(adddf3.o)
-                0x000000000001f258                __aeabi_dadd
- .text          0x000000000001f92c      0x5d0 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(divdf3.o)
-                0x000000000001f92c                __aeabi_ddiv
- .text          0x000000000001fefc       0x78 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(eqdf2.o)
-                0x000000000001fefc                __eqdf2
-                0x000000000001fefc                __nedf2
- .text          0x000000000001ff74       0xe4 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(gedf2.o)
-                0x000000000001ff74                __gtdf2
-                0x000000000001ff74                __gedf2
- .text          0x0000000000020058       0xe0 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(ledf2.o)
-                0x0000000000020058                __ltdf2
-                0x0000000000020058                __ledf2
- .text          0x0000000000020138      0x4d8 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(muldf3.o)
-                0x0000000000020138                __aeabi_dmul
- .text          0x0000000000020610      0x724 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(subdf3.o)
-                0x0000000000020610                __aeabi_dsub
- .text          0x0000000000020d34       0x3c /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(unorddf2.o)
-                0x0000000000020d34                __aeabi_dcmpun
- .text          0x0000000000020d70       0x6c /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(fixdfsi.o)
-                0x0000000000020d70                __aeabi_d2iz
- .text          0x0000000000020ddc       0x60 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(floatsidf.o)
-                0x0000000000020ddc                __aeabi_i2d
- .text          0x0000000000020e3c       0x4c /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(floatunsidf.o)
-                0x0000000000020e3c                __aeabi_ui2d
- .text          0x0000000000020e88       0x90 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(extendsfdf2.o)
-                0x0000000000020e88                __aeabi_f2d
- .text          0x0000000000020f18      0x110 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(truncdfsf2.o)
-                0x0000000000020f18                __aeabi_d2f
- .text          0x0000000000021028       0x3c /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_clzsi2.o)
-                0x0000000000021028                __clzsi2
- .text.__errno  0x0000000000021064        0xc /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-errno.o)
-                0x0000000000021064                __errno
- .text.printf   0x0000000000021070       0x34 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-printf.o)
-                0x0000000000021070                printf
-                0x0000000000021070                iprintf
- .text.std      0x00000000000210a4       0x48 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-findfp.o)
+                0x000000000001e118      0x1b0 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a(lib_a-e_sqrt.o)
+                0x000000000001e118                __ieee754_sqrt
+ .text.finite   0x000000000001e2c8       0x14 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a(lib_a-s_finite.o)
+                0x000000000001e2c8                finite
+ .text.matherr  0x000000000001e2dc        0x4 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a(lib_a-s_matherr.o)
+                0x000000000001e2dc                matherr
+ .text.nan      0x000000000001e2e0        0xc /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a(lib_a-s_nan.o)
+                0x000000000001e2e0                nan
+ .text.rint     0x000000000001e2ec      0x120 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a(lib_a-s_rint.o)
+                0x000000000001e2ec                rint
+ .text.scalbn   0x000000000001e40c       0xf8 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a(lib_a-s_scalbn.o)
+                0x000000000001e40c                scalbn
+ .text          0x000000000001e504       0x14 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_thumb1_case_uqi.o)
+                0x000000000001e504                __gnu_thumb1_case_uqi
+ .text          0x000000000001e518       0x14 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_thumb1_case_shi.o)
+                0x000000000001e518                __gnu_thumb1_case_shi
+ .text          0x000000000001e52c      0x114 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+                0x000000000001e52c                __udivsi3
+                0x000000000001e52c                __aeabi_uidiv
+                0x000000000001e638                __aeabi_uidivmod
+ .text          0x000000000001e640      0x1d4 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
+                0x000000000001e640                __aeabi_idiv
+                0x000000000001e640                __divsi3
+                0x000000000001e80c                __aeabi_idivmod
+ .text          0x000000000001e814        0x4 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+                0x000000000001e814                __aeabi_ldiv0
+                0x000000000001e814                __aeabi_idiv0
+ .text          0x000000000001e818       0x7c /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_arm_cmpdf2.o)
+                0x000000000001e818                __aeabi_cdrcmple
+                0x000000000001e828                __aeabi_cdcmple
+                0x000000000001e828                __aeabi_cdcmpeq
+                0x000000000001e838                __aeabi_dcmpeq
+                0x000000000001e844                __aeabi_dcmplt
+                0x000000000001e858                __aeabi_dcmple
+                0x000000000001e86c                __aeabi_dcmpgt
+                0x000000000001e880                __aeabi_dcmpge
+ .text          0x000000000001e894       0x74 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_arm_cmpsf2.o)
+                0x000000000001e894                __aeabi_cfrcmple
+                0x000000000001e89c                __aeabi_cfcmple
+                0x000000000001e89c                __aeabi_cfcmpeq
+                0x000000000001e8ac                __aeabi_fcmpeq
+                0x000000000001e8b8                __aeabi_fcmplt
+                0x000000000001e8cc                __aeabi_fcmple
+                0x000000000001e8e0                __aeabi_fcmpgt
+                0x000000000001e8f4                __aeabi_fcmpge
+ .text          0x000000000001e908      0x218 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(divsf3.o)
+                0x000000000001e908                __aeabi_fdiv
+ .text          0x000000000001eb20       0x50 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(eqsf2.o)
+                0x000000000001eb20                __nesf2
+                0x000000000001eb20                __eqsf2
+ .text          0x000000000001eb70       0x98 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(gesf2.o)
+                0x000000000001eb70                __gtsf2
+                0x000000000001eb70                __gesf2
+ .text          0x000000000001ec08       0x94 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(lesf2.o)
+                0x000000000001ec08                __lesf2
+                0x000000000001ec08                __ltsf2
+ .text          0x000000000001ec9c      0x234 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(mulsf3.o)
+                0x000000000001ec9c                __aeabi_fmul
+ .text          0x000000000001eed0      0x390 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(subsf3.o)
+                0x000000000001eed0                __aeabi_fsub
+ .text          0x000000000001f260       0x8c /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(floatsisf.o)
+                0x000000000001f260                __aeabi_i2f
+ .text          0x000000000001f2ec      0x6d4 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(adddf3.o)
+                0x000000000001f2ec                __aeabi_dadd
+ .text          0x000000000001f9c0      0x5d0 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(divdf3.o)
+                0x000000000001f9c0                __aeabi_ddiv
+ .text          0x000000000001ff90       0x78 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(eqdf2.o)
+                0x000000000001ff90                __eqdf2
+                0x000000000001ff90                __nedf2
+ .text          0x0000000000020008       0xe4 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(gedf2.o)
+                0x0000000000020008                __gtdf2
+                0x0000000000020008                __gedf2
+ .text          0x00000000000200ec       0xe0 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(ledf2.o)
+                0x00000000000200ec                __ltdf2
+                0x00000000000200ec                __ledf2
+ .text          0x00000000000201cc      0x4d8 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(muldf3.o)
+                0x00000000000201cc                __aeabi_dmul
+ .text          0x00000000000206a4      0x724 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(subdf3.o)
+                0x00000000000206a4                __aeabi_dsub
+ .text          0x0000000000020dc8       0x3c /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(unorddf2.o)
+                0x0000000000020dc8                __aeabi_dcmpun
+ .text          0x0000000000020e04       0x6c /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(fixdfsi.o)
+                0x0000000000020e04                __aeabi_d2iz
+ .text          0x0000000000020e70       0x60 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(floatsidf.o)
+                0x0000000000020e70                __aeabi_i2d
+ .text          0x0000000000020ed0       0x4c /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(floatunsidf.o)
+                0x0000000000020ed0                __aeabi_ui2d
+ .text          0x0000000000020f1c       0x90 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(extendsfdf2.o)
+                0x0000000000020f1c                __aeabi_f2d
+ .text          0x0000000000020fac      0x110 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(truncdfsf2.o)
+                0x0000000000020fac                __aeabi_d2f
+ .text          0x00000000000210bc       0x3c /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(_clzsi2.o)
+                0x00000000000210bc                __clzsi2
+ .text.__errno  0x00000000000210f8        0xc /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-errno.o)
+                0x00000000000210f8                __errno
+ .text.printf   0x0000000000021104       0x34 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-printf.o)
+                0x0000000000021104                printf
+                0x0000000000021104                iprintf
+ .text.std      0x0000000000021138       0x48 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-findfp.o)
  .text._cleanup_r
-                0x00000000000210ec       0x10 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-findfp.o)
-                0x00000000000210ec                _cleanup_r
+                0x0000000000021180       0x10 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-findfp.o)
+                0x0000000000021180                _cleanup_r
  .text.__sfmoreglue
-                0x00000000000210fc       0x2c /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-findfp.o)
-                0x00000000000210fc                __sfmoreglue
+                0x0000000000021190       0x2c /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-findfp.o)
+                0x0000000000021190                __sfmoreglue
  .text.__sfp_lock_acquire
-                0x0000000000021128       0x10 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-findfp.o)
-                0x0000000000021128                __sfp_lock_acquire
+                0x00000000000211bc       0x10 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-findfp.o)
+                0x00000000000211bc                __sfp_lock_acquire
  .text.__sfp_lock_release
-                0x0000000000021138       0x10 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-findfp.o)
-                0x0000000000021138                __sfp_lock_release
+                0x00000000000211cc       0x10 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-findfp.o)
+                0x00000000000211cc                __sfp_lock_release
  .text.__sinit_lock_acquire
-                0x0000000000021148       0x10 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-findfp.o)
-                0x0000000000021148                __sinit_lock_acquire
+                0x00000000000211dc       0x10 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-findfp.o)
+                0x00000000000211dc                __sinit_lock_acquire
  .text.__sinit_lock_release
-                0x0000000000021158       0x10 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-findfp.o)
-                0x0000000000021158                __sinit_lock_release
- .text.__sinit  0x0000000000021168       0x70 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-findfp.o)
-                0x0000000000021168                __sinit
- .text.__sfp    0x00000000000211d8       0x90 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-findfp.o)
-                0x00000000000211d8                __sfp
+                0x00000000000211ec       0x10 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-findfp.o)
+                0x00000000000211ec                __sinit_lock_release
+ .text.__sinit  0x00000000000211fc       0x70 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-findfp.o)
+                0x00000000000211fc                __sinit
+ .text.__sfp    0x000000000002126c       0x90 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-findfp.o)
+                0x000000000002126c                __sfp
  .text._fwalk_reent
-                0x0000000000021268       0x40 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-fwalk.o)
-                0x0000000000021268                _fwalk_reent
+                0x00000000000212fc       0x40 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-fwalk.o)
+                0x00000000000212fc                _fwalk_reent
  .text.__sfputc_r
-                0x00000000000212a8       0x2a /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-vfprintf.o)
+                0x000000000002133c       0x2a /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-vfprintf.o)
  .text.__sfputs_r
-                0x00000000000212d2       0x24 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-vfprintf.o)
-                0x00000000000212d2                __sfputs_r
- *fill*         0x00000000000212f6        0x2 
+                0x0000000000021366       0x24 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-vfprintf.o)
+                0x0000000000021366                __sfputs_r
+ *fill*         0x000000000002138a        0x2 
  .text._vfprintf_r
-                0x00000000000212f8      0x274 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-vfprintf.o)
-                0x00000000000212f8                _vfiprintf_r
-                0x00000000000212f8                _vfprintf_r
- .text.__sread  0x000000000002156c       0x28 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-stdio.o)
-                0x000000000002156c                __sread
+                0x000000000002138c      0x274 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-vfprintf.o)
+                0x000000000002138c                _vfiprintf_r
+                0x000000000002138c                _vfprintf_r
+ .text.__sread  0x0000000000021600       0x28 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-stdio.o)
+                0x0000000000021600                __sread
  .text.__swrite
-                0x0000000000021594       0x38 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-stdio.o)
-                0x0000000000021594                __swrite
- .text.__sseek  0x00000000000215cc       0x2c /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-stdio.o)
-                0x00000000000215cc                __sseek
+                0x0000000000021628       0x38 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-stdio.o)
+                0x0000000000021628                __swrite
+ .text.__sseek  0x0000000000021660       0x2c /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-stdio.o)
+                0x0000000000021660                __sseek
  .text.__sclose
-                0x00000000000215f8        0xc /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-stdio.o)
-                0x00000000000215f8                __sclose
+                0x000000000002168c        0xc /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-stdio.o)
+                0x000000000002168c                __sclose
  .text.__swbuf_r
-                0x0000000000021604       0xac /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-wbuf.o)
-                0x0000000000021604                __swbuf_r
+                0x0000000000021698       0xac /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-wbuf.o)
+                0x0000000000021698                __swbuf_r
  .text._write_r
-                0x00000000000216b0       0x28 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-writer.o)
-                0x00000000000216b0                _write_r
+                0x0000000000021744       0x28 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-writer.o)
+                0x0000000000021744                _write_r
  .text.__swsetup_r
-                0x00000000000216d8       0xf0 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-wsetup.o)
-                0x00000000000216d8                __swsetup_r
+                0x000000000002176c       0xf0 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-wsetup.o)
+                0x000000000002176c                __swsetup_r
  .text._close_r
-                0x00000000000217c8       0x24 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-closer.o)
-                0x00000000000217c8                _close_r
+                0x000000000002185c       0x24 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-closer.o)
+                0x000000000002185c                _close_r
  .text.__sflush_r
-                0x00000000000217ec      0x118 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-fflush.o)
-                0x00000000000217ec                __sflush_r
+                0x0000000000021880      0x118 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-fflush.o)
+                0x0000000000021880                __sflush_r
  .text._fflush_r
-                0x0000000000021904       0x80 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-fflush.o)
-                0x0000000000021904                _fflush_r
+                0x0000000000021998       0x80 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-fflush.o)
+                0x0000000000021998                _fflush_r
  .text._lseek_r
-                0x0000000000021984       0x28 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-lseekr.o)
-                0x0000000000021984                _lseek_r
+                0x0000000000021a18       0x28 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-lseekr.o)
+                0x0000000000021a18                _lseek_r
  .text.__swhatbuf_r
-                0x00000000000219ac       0x50 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-makebuf.o)
-                0x00000000000219ac                __swhatbuf_r
+                0x0000000000021a40       0x50 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-makebuf.o)
+                0x0000000000021a40                __swhatbuf_r
  .text.__smakebuf_r
-                0x00000000000219fc       0x88 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-makebuf.o)
-                0x00000000000219fc                __smakebuf_r
- .text._read_r  0x0000000000021a84       0x28 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-readr.o)
-                0x0000000000021a84                _read_r
+                0x0000000000021a90       0x88 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-makebuf.o)
+                0x0000000000021a90                __smakebuf_r
+ .text._read_r  0x0000000000021b18       0x28 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-readr.o)
+                0x0000000000021b18                _read_r
  .text._fstat_r
-                0x0000000000021aac       0x24 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-fstatr.o)
-                0x0000000000021aac                _fstat_r
+                0x0000000000021b40       0x24 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-fstatr.o)
+                0x0000000000021b40                _fstat_r
  .text._isatty_r
-                0x0000000000021ad0       0x24 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-isattyr.o)
-                0x0000000000021ad0                _isatty_r
- .text._close   0x0000000000021af4       0x10 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(close.o)
-                0x0000000000021af4                _close
- .text._fstat   0x0000000000021b04       0x10 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(fstat.o)
-                0x0000000000021b04                _fstat
- .text._isatty  0x0000000000021b14       0x10 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(isatty.o)
-                0x0000000000021b14                _isatty
- .text._lseek   0x0000000000021b24       0x10 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(lseek.o)
-                0x0000000000021b24                _lseek
+                0x0000000000021b64       0x24 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-isattyr.o)
+                0x0000000000021b64                _isatty_r
+ .text._close   0x0000000000021b88       0x10 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(close.o)
+                0x0000000000021b88                _close
+ .text._fstat   0x0000000000021b98       0x10 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(fstat.o)
+                0x0000000000021b98                _fstat
+ .text._isatty  0x0000000000021ba8       0x10 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(isatty.o)
+                0x0000000000021ba8                _isatty
+ .text._lseek   0x0000000000021bb8       0x10 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(lseek.o)
+                0x0000000000021bb8                _lseek
  *(.init)
- .init          0x0000000000021b34        0x4 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crti.o
-                0x0000000000021b34                _init
- .init          0x0000000000021b38        0x8 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtn.o
+ .init          0x0000000000021bc8        0x4 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crti.o
+                0x0000000000021bc8                _init
+ .init          0x0000000000021bcc        0x8 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtn.o
  *(.fini)
- .fini          0x0000000000021b40        0x4 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crti.o
-                0x0000000000021b40                _fini
- .fini          0x0000000000021b44        0x8 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtn.o
+ .fini          0x0000000000021bd4        0x4 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crti.o
+                0x0000000000021bd4                _fini
+ .fini          0x0000000000021bd8        0x8 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtn.o
  *crtbegin.o(.ctors)
  *crtbegin?.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o *crtend?.o) .ctors)
@@ -2279,121 +2279,121 @@ END GROUP
  *(.dtors)
  *(.rodata*)
  .rodata._global_impure_ptr
-                0x0000000000021b4c        0x4 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-impure.o)
-                0x0000000000021b4c                _global_impure_ptr
+                0x0000000000021be0        0x4 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-impure.o)
+                0x0000000000021be0                _global_impure_ptr
  .rodata._printf_float.str1.1
-                0x0000000000021b50       0x12 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-vfprintf_float.o)
+                0x0000000000021be4       0x12 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-vfprintf_float.o)
  .rodata._printf_i.str1.1
-                0x0000000000021b62       0x22 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-vfprintf_i.o)
+                0x0000000000021bf6       0x22 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-vfprintf_i.o)
  .rodata._dtoa_r.str1.1
-                0x0000000000021b84        0xd /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-dtoa.o)
+                0x0000000000021c18        0xd /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-dtoa.o)
                                           0xf (size before relaxing)
- *fill*         0x0000000000021b91        0x7 
+ *fill*         0x0000000000021c25        0x3 
  .rodata.__mprec_bigtens
-                0x0000000000021b98       0x28 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-mprec.o)
-                0x0000000000021b98                __mprec_bigtens
+                0x0000000000021c28       0x28 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-mprec.o)
+                0x0000000000021c28                __mprec_bigtens
  .rodata.__mprec_tens
-                0x0000000000021bc0       0xc8 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-mprec.o)
-                0x0000000000021bc0                __mprec_tens
+                0x0000000000021c50       0xc8 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-mprec.o)
+                0x0000000000021c50                __mprec_tens
  .rodata.p05.6127
-                0x0000000000021c88        0xc /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-mprec.o)
+                0x0000000000021d18        0xc /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-mprec.o)
  .rodata._setlocale_r.str1.1
-                0x0000000000021c94        0x8 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-locale.o)
+                0x0000000000021d24        0x8 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-locale.o)
                                           0x9 (size before relaxing)
  .rodata.str1.1
-                0x0000000000021c9c        0x2 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-locale.o)
+                0x0000000000021d2c        0x2 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-locale.o)
  .rodata._ctype_
-                0x0000000000021c9e      0x101 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-ctype_.o)
-                0x0000000000021c9e                _ctype_
- *fill*         0x0000000000021d9f        0x1 
- .rodata.i2c    0x0000000000021da0        0x8 _build/main.o
- .rodata        0x0000000000021da8       0x7c _build/main.o
- .rodata        0x0000000000021e24       0x20 _build/app_uart_fifo.o
+                0x0000000000021d2e      0x101 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-ctype_.o)
+                0x0000000000021d2e                _ctype_
+ *fill*         0x0000000000021e2f        0x1 
+ .rodata.i2c    0x0000000000021e30        0x8 _build/main.o
+ .rodata        0x0000000000021e38       0x7c _build/main.o
+ .rodata        0x0000000000021eb4       0x20 _build/app_uart_fifo.o
  .rodata.m_default_config
-                0x0000000000021e44       0x20 _build/nrf_drv_uart.o
+                0x0000000000021ed4       0x20 _build/nrf_drv_uart.o
  .rodata.m_default_config
-                0x0000000000021e64       0x10 _build/nrf_drv_twi.o
+                0x0000000000021ef4       0x10 _build/nrf_drv_twi.o
  .rodata.m_idle
-                0x0000000000021e74       0x10 _build/nrf_drv_twi.o
+                0x0000000000021f04       0x10 _build/nrf_drv_twi.o
  .rodata.m_tx_suspended
-                0x0000000000021e84       0x28 _build/nrf_drv_twi.o
+                0x0000000000021f14       0x28 _build/nrf_drv_twi.o
  .rodata.m_rx_suspended
-                0x0000000000021eac       0x20 _build/nrf_drv_twi.o
+                0x0000000000021f3c       0x20 _build/nrf_drv_twi.o
  .rodata.m_stopped
-                0x0000000000021ecc       0x18 _build/nrf_drv_twi.o
+                0x0000000000021f5c       0x18 _build/nrf_drv_twi.o
  .rodata.m_error
-                0x0000000000021ee4       0x18 _build/nrf_drv_twi.o
+                0x0000000000021f74       0x18 _build/nrf_drv_twi.o
  .rodata.m_states_len
-                0x0000000000021efc       0x14 _build/nrf_drv_twi.o
- .rodata        0x0000000000021f10       0x50 _build/i2c.o
- .rodata        0x0000000000021f60       0x7a _build/LSM303AGR.o
- *fill*         0x0000000000021fda        0x6 
+                0x0000000000021f8c       0x14 _build/nrf_drv_twi.o
+ .rodata        0x0000000000021fa0       0x50 _build/i2c.o
+ .rodata        0x0000000000021ff0       0x7a _build/LSM303AGR.o
+ *fill*         0x000000000002206a        0x6 
  .rodata.atanhi
-                0x0000000000021fe0       0x20 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a(lib_a-s_atan.o)
+                0x0000000000022070       0x20 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a(lib_a-s_atan.o)
  .rodata.atanlo
-                0x0000000000022000       0x20 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a(lib_a-s_atan.o)
+                0x0000000000022090       0x20 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a(lib_a-s_atan.o)
  .rodata.pow.str1.4
-                0x0000000000022020        0x4 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a(lib_a-w_pow.o)
+                0x00000000000220b0        0x4 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a(lib_a-w_pow.o)
  .rodata.sqrt.str1.4
-                0x0000000000022024        0x5 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a(lib_a-w_sqrt.o)
+                0x00000000000220b4        0x5 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a(lib_a-w_sqrt.o)
  .rodata.__ieee754_pow.str1.4
-                0x0000000000022029        0x5 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a(lib_a-e_pow.o)
+                0x00000000000220b9        0x5 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a(lib_a-e_pow.o)
                                           0x1 (size before relaxing)
- *fill*         0x0000000000022029        0x7 
- .rodata.TWO52  0x0000000000022030       0x10 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a(lib_a-s_rint.o)
- .rodata        0x0000000000022040       0x80 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(divsf3.o)
- .rodata        0x00000000000220c0       0x40 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(mulsf3.o)
- .rodata        0x0000000000022100       0x40 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(divdf3.o)
- .rodata        0x0000000000022140       0x40 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(muldf3.o)
+ *fill*         0x00000000000220b9        0x7 
+ .rodata.TWO52  0x00000000000220c0       0x10 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a(lib_a-s_rint.o)
+ .rodata        0x00000000000220d0       0x80 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(divsf3.o)
+ .rodata        0x0000000000022150       0x40 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(mulsf3.o)
+ .rodata        0x0000000000022190       0x40 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(divdf3.o)
+ .rodata        0x00000000000221d0       0x40 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/libgcc.a(muldf3.o)
  .rodata.__sf_fake_stderr
-                0x0000000000022180       0x20 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-findfp.o)
-                0x0000000000022180                __sf_fake_stderr
+                0x0000000000022210       0x20 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-findfp.o)
+                0x0000000000022210                __sf_fake_stderr
  .rodata.__sf_fake_stdin
-                0x00000000000221a0       0x20 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-findfp.o)
-                0x00000000000221a0                __sf_fake_stdin
+                0x0000000000022230       0x20 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-findfp.o)
+                0x0000000000022230                __sf_fake_stdin
  .rodata.__sf_fake_stdout
-                0x00000000000221c0       0x20 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-findfp.o)
-                0x00000000000221c0                __sf_fake_stdout
+                0x0000000000022250       0x20 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-findfp.o)
+                0x0000000000022250                __sf_fake_stdout
  .rodata._vfprintf_r.str1.1
-                0x00000000000221e0       0x11 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-vfprintf.o)
+                0x0000000000022270       0x11 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-vfprintf.o)
  *(.eh_frame*)
- *fill*         0x00000000000221f1        0x3 
- .eh_frame      0x00000000000221f4        0x0 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
-                0x00000000000221f4                . = ALIGN (0x4)
+ *fill*         0x0000000000022281        0x3 
+ .eh_frame      0x0000000000022284        0x0 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
+                0x0000000000022284                . = ALIGN (0x4)
 
-.glue_7         0x00000000000221f4        0x0
- .glue_7        0x00000000000221f4        0x0 linker stubs
+.glue_7         0x0000000000022284        0x0
+ .glue_7        0x0000000000022284        0x0 linker stubs
 
-.glue_7t        0x00000000000221f4        0x0
- .glue_7t       0x00000000000221f4        0x0 linker stubs
+.glue_7t        0x0000000000022284        0x0
+ .glue_7t       0x0000000000022284        0x0 linker stubs
 
-.vfp11_veneer   0x00000000000221f4        0x0
- .vfp11_veneer  0x00000000000221f4        0x0 linker stubs
+.vfp11_veneer   0x0000000000022284        0x0
+ .vfp11_veneer  0x0000000000022284        0x0 linker stubs
 
-.v4_bx          0x00000000000221f4        0x0
- .v4_bx         0x00000000000221f4        0x0 linker stubs
+.v4_bx          0x0000000000022284        0x0
+ .v4_bx         0x0000000000022284        0x0 linker stubs
 
-.iplt           0x00000000000221f4        0x0
- .iplt          0x00000000000221f4        0x0 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
+.iplt           0x0000000000022284        0x0
+ .iplt          0x0000000000022284        0x0 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
 
-.ARM.extab      0x00000000000221f4        0x0
+.ARM.extab      0x0000000000022284        0x0
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x00000000000221f4                . = ALIGN (0x4)
-                0x00000000000221f4                __exidx_start = .
+                0x0000000000022284                . = ALIGN (0x4)
+                0x0000000000022284                __exidx_start = .
 
-.ARM.exidx      0x00000000000221f4        0x8
+.ARM.exidx      0x0000000000022284        0x8
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
- .ARM.exidx     0x00000000000221f4        0x8 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o
- .ARM.exidx     0x00000000000221fc        0x0 _build/gcc_startup_nrf51.o
+ .ARM.exidx     0x0000000000022284        0x8 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o
+ .ARM.exidx     0x000000000002228c        0x0 _build/gcc_startup_nrf51.o
                                           0x8 (size before relaxing)
-                0x00000000000221fc                . = ALIGN (0x4)
-                0x00000000000221fc                __exidx_end = .
-                0x00000000000221fc                __etext = .
+                0x000000000002228c                . = ALIGN (0x4)
+                0x000000000002228c                __exidx_end = .
+                0x000000000002228c                __etext = .
 
-.rel.dyn        0x00000000000221fc        0x0
- .rel.iplt      0x00000000000221fc        0x0 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
+.rel.dyn        0x000000000002228c        0x0
+ .rel.iplt      0x000000000002228c        0x0 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
 
-.data           0x0000000020002000      0x1f0 load address 0x00000000000221fc
+.data           0x0000000020002000      0x1f0 load address 0x000000000002228c
                 0x0000000020002000                __data_start__ = .
  *(vtable)
  *(.data*)
@@ -2431,10 +2431,10 @@ END GROUP
                 0x00000000200021f0                . = ALIGN (0x4)
                 0x00000000200021f0                __data_end__ = .
 
-.igot.plt       0x00000000200021f0        0x0 load address 0x00000000000223ec
+.igot.plt       0x00000000200021f0        0x0 load address 0x000000000002247c
  .igot.plt      0x00000000200021f0        0x0 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v6-m/nofp/crtbegin.o
 
-.bss            0x00000000200021f0      0x1e0 load address 0x00000000000223ec
+.bss            0x00000000200021f0      0x1e0 load address 0x000000000002247c
                 0x00000000200021f0                . = ALIGN (0x4)
                 0x00000000200021f0                __bss_start__ = .
  *(.bss*)
@@ -2843,7 +2843,7 @@ OUTPUT(_build/nrf51822_xxaa_s110.out elf32-littlearm)
  .debug_frame   0x0000000000003f3c       0x20 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(isatty.o)
  .debug_frame   0x0000000000003f5c       0x20 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(lseek.o)
 
-.debug_info     0x0000000000000000    0x10367
+.debug_info     0x0000000000000000    0x1039d
  .debug_info    0x0000000000000000      0x1c4 _build/system_nrf51.o
  .debug_info    0x00000000000001c4     0x216c _build/main.o
  .debug_info    0x0000000000002330      0x99f _build/nrf_delay.o
@@ -2855,7 +2855,7 @@ OUTPUT(_build/nrf51822_xxaa_s110.out elf32-littlearm)
  .debug_info    0x000000000000819b     0x2234 _build/nrf_drv_uart.o
  .debug_info    0x000000000000a3cf     0x27b7 _build/nrf_drv_twi.o
  .debug_info    0x000000000000cb86     0x1e50 _build/i2c.o
- .debug_info    0x000000000000e9d6     0x1991 _build/LSM303AGR.o
+ .debug_info    0x000000000000e9d6     0x19c7 _build/LSM303AGR.o
 
 .debug_abbrev   0x0000000000000000     0x200b
  .debug_abbrev  0x0000000000000000      0x112 _build/system_nrf51.o
@@ -2911,7 +2911,7 @@ OUTPUT(_build/nrf51822_xxaa_s110.out elf32-littlearm)
  .debug_ranges  0x0000000000000de0      0x1c0 _build/i2c.o
  .debug_ranges  0x0000000000000fa0      0x1d8 _build/LSM303AGR.o
 
-.debug_line     0x0000000000000000     0x5ed9
+.debug_line     0x0000000000000000     0x5f3f
  .debug_line    0x0000000000000000      0x2b1 _build/system_nrf51.o
  .debug_line    0x00000000000002b1      0x9e0 _build/main.o
  .debug_line    0x0000000000000c91      0x23f _build/nrf_delay.o
@@ -2923,9 +2923,9 @@ OUTPUT(_build/nrf51822_xxaa_s110.out elf32-littlearm)
  .debug_line    0x0000000000002d08      0xee2 _build/nrf_drv_uart.o
  .debug_line    0x0000000000003bea     0x1164 _build/nrf_drv_twi.o
  .debug_line    0x0000000000004d4e      0x85c _build/i2c.o
- .debug_line    0x00000000000055aa      0x92f _build/LSM303AGR.o
+ .debug_line    0x00000000000055aa      0x995 _build/LSM303AGR.o
 
-.debug_str      0x0000000000000000     0x343b
+.debug_str      0x0000000000000000     0x3448
  .debug_str     0x0000000000000000      0x28d _build/system_nrf51.o
                                         0x2ca (size before relaxing)
  .debug_str     0x000000000000028d     0x17f1 _build/main.o
@@ -2948,8 +2948,8 @@ OUTPUT(_build/nrf51822_xxaa_s110.out elf32-littlearm)
                                        0x1d5a (size before relaxing)
  .debug_str     0x0000000000003240       0xd7 _build/i2c.o
                                        0x18e2 (size before relaxing)
- .debug_str     0x0000000000003317      0x124 _build/LSM303AGR.o
-                                       0x15cd (size before relaxing)
+ .debug_str     0x0000000000003317      0x131 _build/LSM303AGR.o
+                                       0x15da (size before relaxing)
 
 .stab           0x0000000000000000       0x6c
  .stab          0x0000000000000000       0x24 /usr/local/Cellar/arm-none-eabi-gcc/9-2019-q4-major/gcc/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(close.o)

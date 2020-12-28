@@ -9,7 +9,14 @@ void LSM303init() {
 
   // Set 10Hz rate and enable all axes
   writeRegData[0] = ACCEL_REG_CTRL1;
-  writeRegData[1] = 0b00100111;
+  // 10 Hz
+  // writeRegData[1] = 0b00100111;
+  // 100Hz
+  // writeRegData[1] = 0b01010111;
+  // 200Hz
+  writeRegData[1] = 0b01100111;
+
+
   // writeRegData[1] = 0x57;
   i2cWrite(ACCEL_I2C_ADDRESS,writeRegData,2);
   // TODO add a write/verify option and check for failures
@@ -19,15 +26,27 @@ void LSM303init() {
 
 void LSM303getAccel(accelData_t * accelData) {
   uint8_t accelRawData[6] = {0,0,0,0,0,0};
+  int16_t accelSumData[3] = {0,0,0};
 
-  while(!LSM303dataReady());
-  i2cRead(ACCEL_I2C_ADDRESS,(ACCEL_REG_OUT_X_L | ACCEL_SEQ_READ_BIT),accelRawData,6);
+  for (uint8_t i = 0; i < ACCEL_NUM_AVERAGES; i++) {
+    // Get new accel reading when available
+    while(!LSM303dataReady());
+    i2cRead(ACCEL_I2C_ADDRESS,(ACCEL_REG_OUT_X_L | ACCEL_SEQ_READ_BIT),accelRawData,6);
+    // Convert reading to usable 16-bit format and sum
+    accelSumData[0] += (*(int16_t*) &accelRawData[0]) >> 6;
+    accelSumData[1] += (*(int16_t*) &accelRawData[2]) >> 6;
+    accelSumData[2] += (*(int16_t*) &accelRawData[4]) >> 6;
+  }
   // DBGPRINT("split: %#x,%#x\n\r",accelRawData[1],accelRawData[0]);
   // DBGPRINT("combined: %#x\n\r",((*(int16_t*) &accelRawData[0]) >> 6));
   // Convert the two left-justified uint_8 to a single int16_t
-  accelData->x = LSM303bitsToMg((*(int16_t*) &accelRawData[0]) >> 6);
-  accelData->y = LSM303bitsToMg((*(int16_t*) &accelRawData[2]) >> 6);
-  accelData->z = LSM303bitsToMg((*(int16_t*) &accelRawData[4]) >> 6);
+  // accelData->x = LSM303bitsToMg((*(int16_t*) &accelRawData[0]) >> 6);
+  // accelData->y = LSM303bitsToMg((*(int16_t*) &accelRawData[2]) >> 6);
+  // accelData->z = LSM303bitsToMg((*(int16_t*) &accelRawData[4]) >> 6);
+  accelData->x = LSM303bitsToMg(accelSumData[0] >> ACCEL_AVG_SHIFT);
+  accelData->y = LSM303bitsToMg(accelSumData[1] >> ACCEL_AVG_SHIFT);
+  accelData->z = LSM303bitsToMg(accelSumData[2] >> ACCEL_AVG_SHIFT);
+
 
   // Apply calibration
   if (LSM303calData.calibrated) {
@@ -40,6 +59,8 @@ void LSM303getAccel(accelData_t * accelData) {
   }
 }
 
+// Check if new data is ready
+// TODO: switch to using pin-based interrupt
 bool LSM303dataReady() {
   uint8_t regData = 0;
 

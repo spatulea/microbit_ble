@@ -1,6 +1,12 @@
 #ifndef LSM303AGR_H
 #define LSM303AGR_H
 
+// how many readings to average in powers of 2
+#define ACCEL_NUM_AVERAGES 8
+// how many leftshifts to average the prior sum
+// could probably be precopiler math instead :D
+#define ACCEL_AVG_SHIFT 3
+
 #define ACCEL_I2C_ADDRESS 0x19
 #define MAG_I2C_ADDRESS   0x1E
 
