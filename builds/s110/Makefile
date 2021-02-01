@@ -50,7 +50,20 @@ $(abspath ../../components/drivers_nrf/common/nrf_drv_common.c) \
 $(abspath ../../components/drivers_nrf/uart/nrf_drv_uart.c) \
 $(abspath ../../components/drivers_nrf/twi_master/nrf_drv_twi.c) \
 $(abspath ../../i2c.c) \
-$(abspath ../../LSM303AGR.c) \
+$(abspath ../../LSM303AGR.c)
+
+# Bluetooth related source
+C_SOURCE_FILES += \
+$(abspath ../../components/libraries/timer/app_timer.c) \
+$(abspath ../../components/ble/common/ble_advdata.c) \
+$(abspath ../../components/ble/common/ble_conn_params.c) \
+$(abspath ../../components/ble/ble_services/ble_lbs/ble_lbs.c) \
+$(abspath ../../components/softdevice/common/softdevice_handler/softdevice_handler.c) \
+$(abspath ../../components/drivers_nrf/gpiote/nrf_drv_gpiote.c) \
+$(abspath ../../components/libraries/button/app_button.c)
+
+# C_SOURCE_FILES += $(abspath ../../components/)
+# C_SOURCE_FILES += $(wildcard **/*.c)
 
 
 #assembly files common to all targets
@@ -76,6 +89,14 @@ INC_PATHS += -I$(abspath ../../components/drivers_nrf/twi_master)
 INC_PATHS += -I$(abspath ../../components/drivers_nrf/common)
 INC_PATHS += -I$(abspath ../../components/drivers_nrf/config)
 INC_PATHS += -I$(abspath ../../components/libraries/fifo)
+INC_PATHS += -I$(abspath ../../components/libraries/timer)
+INC_PATHS += -I$(abspath ../../components/libraries/button)
+
+INC_PATHS += -I$(abspath ../../components/ble/common)
+INC_PATHS += -I$(abspath ../../components/ble/ble_services/ble_lbs)
+INC_PATHS += -I$(abspath ../../components/softdevice/common/softdevice_handler)
+INC_PATHS += -I$(abspath ../../components/drivers_nrf/gpiote)
+
 
 OBJECT_DIRECTORY = _build
 LISTING_DIRECTORY = $(OBJECT_DIRECTORY)
@@ -93,7 +114,8 @@ CFLAGS += -DBOARD_PCA20006
 CFLAGS += -DBSP_DEFINES_ONLY
 CFLAGS += -mcpu=cortex-m0
 CFLAGS += -mthumb -mabi=aapcs --std=gnu99
-CFLAGS += -Wall -Werror -O0
+# CFLAGS += -Wall -Werror -O0
+CFLAGS += -Wall -O0
 CFLAGS += -mfloat-abi=soft
 # keep every function in separate section. This will allow linker to dump unused functions
 CFLAGS += -ffunction-sections -fdata-sections -fno-strict-aliasing
