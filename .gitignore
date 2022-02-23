@@ -11,3 +11,8 @@
 *.ilk
 *.map
 *.exp
+
+# Executables
+*.hex
+*.bin
+*.out
