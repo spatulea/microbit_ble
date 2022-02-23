@@ -2,6 +2,12 @@
 *.o
 *.ko
 *.obj
+
 # Mac stuff
 .DS_Store
 .DS_Store?
+
+# Linker output
+*.ilk
+*.map
+*.exp

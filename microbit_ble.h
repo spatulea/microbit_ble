@@ -1,5 +1,5 @@
-#ifndef BLINKY_H
-#define BLINKY_H
+#ifndef MICROBIT_BLE_H
+#define MICROBIT_BLE_H
 
 #define DEBUG 1
 
@@ -44,7 +44,7 @@
 #define BUTTON_A_PIN                    17              /**< Button that will trigger the notification event with the LED Button Service */
 #define BUTTON_B_PIN                    26 
 
-#define DEVICE_NAME                     "Nordic_Blinky"                             /**< Name of device. Will be included in the advertising data. */
+#define DEVICE_NAME                     "LEVELY"                             /**< Name of device. Will be included in the advertising data. */
 
 #define APP_ADV_INTERVAL                64                                          /**< The advertising interval (in units of 0.625 ms; this value corresponds to 40 ms). */
 #define APP_ADV_TIMEOUT_IN_SECONDS      BLE_GAP_ADV_TIMEOUT_GENERAL_UNLIMITED       /**< The advertising time-out (in units of seconds). When set to 0, we will never time out. */

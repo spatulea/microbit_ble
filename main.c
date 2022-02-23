@@ -12,14 +12,14 @@
 
 /** @file
  *
- * @defgroup blinky_example_main main.c
+ * @defgroup microbit_ble main.c
  * @{
- * @ingroup blinky_example
- * @brief Blinky Example Application main file.
+ * @ingroup microbit_ble
+ * @brief microbit_ble application main file.
  *
  */
 
-#include "blinky.h"
+#include "microbit_ble.h"
 
 #define UART_TX_BUF_SIZE 256                         /**< UART TX buffer size. */
 #define UART_RX_BUF_SIZE 1                           /**< UART RX buffer size. */

@@ -21,7 +21,7 @@ Process for replication:
 
 
 openocd command to load softdevice:
-openocd -f interface/cmsis-dap.cfg -f target/nrf51.cfg -c "program /Users/sebastian/gits/blinky/components/softdevice/s110/hex/s110_nrf51_8.0.0_softdevice.hex verify reset exit"
+openocd -f interface/cmsis-dap.cfg -f target/nrf51.cfg -c "program /Users/sebastian/gits/microbit_ble/components/softdevice/s110/hex/s110_nrf51_8.0.0_softdevice.hex verify reset exit"
 
 openocd command to load firmware image (dependent on softdevice present):
 openocd -f interface/cmsis-dap.cfg -f target/nrf51.cfg -c "program _build/nrf51822_xxaa_s110.hex verify reset exit"

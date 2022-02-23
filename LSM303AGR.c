@@ -1,4 +1,4 @@
-#include "blinky.h"
+#include "microbit_ble.h"
 
 static uint8_t writeRegData[2] = {0, 0};
 // Calibration values for accelerometer
@@ -86,9 +86,15 @@ void mgToDeg(accelData_t * accelData, accelData_t * inclinationData) {
 
   // Get theta, psi and phi
   // Probably only need theta and psi (phi? second one)
-  inclinationData->x = atan(accelData->x / (sqrt(exp2(accelData->y)+exp2(accelData->z))))*180/M_PI;
-  inclinationData->y = atan(accelData->y / (sqrt(exp2(accelData->x)+exp2(accelData->z))))*180/M_PI;
-  inclinationData->z = atan((sqrt(exp2(accelData->x)+exp2(accelData->y)))/accelData->z)*180/M_PI;
+  inclinationData->x = atan(accelData->x /
+                            (sqrt((accelData->y) * (accelData->y) + (accelData->z) * (accelData->z)))) *
+                       180 / M_PI;
+  inclinationData->y = atan(accelData->y /
+                            (sqrt((accelData->x) * (accelData->x) + (accelData->z) * (accelData->z)))) *
+                       180 / M_PI;
+  inclinationData->z = atan((sqrt((accelData->x) * (accelData->x) + (accelData->y) * (accelData->y))) /
+                            accelData->z) *
+                       180 / M_PI;
 }
 // -------------------------------
 

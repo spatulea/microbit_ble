@@ -5,7 +5,11 @@
     "nrf_delay.h": "c",
     "nrf.h": "c",
     "stdbool.h": "c",
-    "stdint.h": "c"
+    "stdint.h": "c",
+    "microbit_ble.h": "c",
+    "cmath": "c",
+    "math.h": "c",
+    "lsm303agr.h": "c"
   },
   "C_Cpp.errorSquiggles": "Enabled"
 }

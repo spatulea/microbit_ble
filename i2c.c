@@ -1,4 +1,4 @@
-#include "blinky.h"
+#include "microbit_ble.h"
 
 static const nrf_drv_twi_t * i2cInstance;
 
