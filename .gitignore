@@ -16,3 +16,6 @@
 *.hex
 *.bin
 *.out
+
+# Build directory
+build
