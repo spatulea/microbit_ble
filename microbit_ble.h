@@ -15,7 +15,7 @@
 #include "nrf_delay.h"
 #include "nrf_gpio.h"
 #include "nrf.h"
-#include "bsp.h"
+// #include "bsp.h"
 #include "nrf_drv_twi.h"
 #include "app_util_platform.h"
 #include "i2c.h"
@@ -35,14 +35,50 @@
 #include "ble_lbs.h"
 #include "ble_gap.h"
 
-// Bluetooth defines
 
+// UART pins
+#define RX_PIN_NUMBER  25
+#define TX_PIN_NUMBER  24
+#define CTS_PIN_NUMBER 35
+#define RTS_PIN_NUMBER 35
+#define HWFC           false
+
+// I2C (accelerometer) pins
+#define SCL_PIN_NUMBER 0
+#define SDA_PIN_NUMBER 30
+
+// LED defines
 #define ADVERTISING_LED_PIN             13                              /**< Is on when device is advertising. */
 #define CONNECTED_LED_PIN               14                              /**< Is on when device has connected. */
 #define BUTTON_LED_PIN                  15
 
+#define BSP_LED_0 ADVERTISING_LED_PIN
+#define BSP_LED_1 CONNECTED_LED_PIN
+#define BSP_LED_2 BUTTON_LED_PIN
+
+#define BSP_LED_0_MASK    (1<<BSP_LED_0)
+#define BSP_LED_1_MASK    (1<<BSP_LED_1)
+#define BSP_LED_2_MASK    (1<<BSP_LED_2)
+
+#define LEDS_MASK      (BSP_LED_0_MASK | BSP_LED_1_MASK | BSP_LED_2_MASK)
+#define LEDS_INV_MASK  0x11111111
+
+// Buttons
 #define BUTTON_A_PIN                    17              /**< Button that will trigger the notification event with the LED Button Service */
 #define BUTTON_B_PIN                    26 
+// #define BUTTON_PULL    NRF_GPIO_PIN_PULLUP
+#define BUTTON_PULL     NRF_GPIO_PIN_NOPULL
+
+#define BSP_BUTTON_0   BUTTON_A_PIN
+#define BSP_BUTTON_1   BUTTON_B_PIN
+
+#define BSP_BUTTON_0_MASK (1<<BSP_BUTTON_0)
+#define BSP_BUTTON_1_MASK (1<<BSP_BUTTON_1)
+#define BUTTONS_MASK   (BSP_BUTTON_0_MASK | BSP_BUTTON_1_MASK)
+
+#define BUTTONS_LIST { BSP_BUTTON_0, BSP_BUTTON_1 }
+
+// Bluetooth defines
 
 #define DEVICE_NAME                     "LEVELY"                             /**< Name of device. Will be included in the advertising data. */
 
